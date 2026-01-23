@@ -86,7 +86,7 @@
                                 </span>
                             </div>
                             <div class="flex-1">
-                                <div class="font-size-16 mt-2">Services</div>
+                                <div class="font-size-16 mt-2">Projects</div>
                             </div>
                         </div>
                         <h4 class="mt-4">{{ \App\Models\Service::count() }}</h4>
@@ -113,7 +113,7 @@
                                 </span>
                             </div>
                             <div class="flex-1">
-                                <div class="font-size-16 mt-2">Projects</div>
+                                <div class="font-size-16 mt-2">Programes</div>
                             </div>
                         </div>
                         <h4 class="mt-4">{{ \App\Models\Project::count() }}</h4>

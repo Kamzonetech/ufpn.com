@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="title">Modify Project</x-slot>
+    <x-slot name="title">Modify Program</x-slot>
 
     <div class="page-content">
 
@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="page-title mb-0 font-size-18">Modify Project</h4>
+                    <h4 class="page-title mb-0 font-size-18">Modify Program</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Project</li>
+                            <li class="breadcrumb-item active">Program</li>
                         </ol>
                     </div>
 
@@ -29,7 +29,7 @@
                             <div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control shadow-sm" wire:model="title" type="text" placeholder="Project Title">
-                                    <label class="form-label"><b>Project Title</b></label>
+                                    <label class="form-label"><b>Program Title</b></label>
                                     @error('title')
                                         <p class="text-danger small mt-1">{{ $message }}</p>
                                     @enderror
@@ -73,7 +73,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 shadow-sm">
-                                    <label class="form-label" for="description"><b>Project Description</b></label>
+                                    <label class="form-label" for="description"><b>Program Description</b></label>
                                     <div wire:ignore>
                                         <textarea id="message" wire:model="description" class="form-control tinymce-basic shadow-sm" name="description"></textarea>
                                     </div>
@@ -98,7 +98,7 @@
 
                                 <button type="submit" class="btn btn-success waves-effect waves-light shadow-lg">
                                     <i wire:loading wire:target="updateProject"
-                                        class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Update Project
+                                        class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Update Program
                                 </button>
                         </form>
                     </div>

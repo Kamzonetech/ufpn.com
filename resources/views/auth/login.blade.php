@@ -29,11 +29,11 @@
 
                         <div class="bg-login text-center p-4" style="background: linear-gradient(to right, #04062e, #070b4d);">
                             <div class="position-relative">
-                                <h5 class="text-white fw-bold font-size-22 mb-2">Khahus</h5>
+                                <h5 class="text-white fw-bold font-size-22 mb-2">UPFN (Ummah Peace Foundation Network)</h5>
                                 <p class="text-white-50 mb-3">Sign in to continue.</p>
                                 <a href="{{ route('welcome') }}" class="logo logo-admin">
-                                    KHAHUS
-                                    {{-- <img src="{{ asset('admin/assets/images/logo.png') }}" alt="Logo" height="50"> --}}
+
+                                    <img src="{{ asset('admin/assets/images/LOGO UPFN2.png') }}" alt="Logo" height="55">
                                     {{-- <img src="{{ asset('admin/assets/images/logo-light.png') }}" alt="Logo" height="50"> --}}
                                     {{-- <img src="{{ asset('admin/assets/images/favicon.png') }}" alt="Logo" height="50"> --}}
                                 </a>

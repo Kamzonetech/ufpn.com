@@ -42,7 +42,9 @@
                   <i class="bi bi-geo-alt flex-shrink-0"></i>
                   <div>
                     <h3>Address</h3>
-                    <p>No.1 Bewaji Street,Jogbe Complex, powerline,Oshogbo, Osun state.</p>
+                    <p>Head Office: 7 Trademore Avenue,900107, Lugbe, Federal Capital Territory, Abuja - Nigeria.</p>
+
+                    <p>Regional Office: Regional Office: 152 Royce Road, Owerri, Imo - State</p>
                   </div>
                 </div><!-- End Info Item -->
 
@@ -50,7 +52,7 @@
                   <i class="bi bi-telephone flex-shrink-0"></i>
                   <div>
                     <h3>Call Us</h3>
-                    <p>07060475901, 08157186642</p>
+                    <p>09123969350</p>
                   </div>
                 </div><!-- End Info Item -->
 
@@ -58,7 +60,7 @@
                   <i class="bi bi-envelope flex-shrink-0"></i>
                   <div>
                     <h3>Email Us</h3>
-                    <p> SuccessTechMultiServices@gmail.com</p>
+                    <p> ummahpeacefoundation@gmail.com</p>
                   </div>
                 </div><!-- End Info Item -->
 

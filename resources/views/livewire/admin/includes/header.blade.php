@@ -37,24 +37,16 @@
             </div>
             <div>
                 <div class="navbar-brand-box">
-                    <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
-                        {{-- <span class="logo-sm">
-                            <img src="{{ asset('admin/assets/images/logo.png') }}" class="logo-main" alt="Logo" height="20">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="{{ asset('admin/assets/images/logo.png') }}" class="logo-main" alt="Logo" height="17">
-                        </span> --}}
-                        <h1 class="text-white">KHAHUS</h1>
-                    </a>
+
 
                     <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
                         {{-- <span class="logo-sm">
-                            <img src="{{ asset('admin/assets/images/logo.png') }}" class="logo-main" alt="Logo" height="20">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="{{ asset('admin/assets/images/logo.png') }}" class="logo-main" alt="Logo" height="30">
-                        </span> --}}
-                        <h1 class="text-white">KHAHUS</h1>
+                            <img src="{{ asset('admin/assets/images/LOGO UPFN.png') }}" class="logo-main" alt="Logo" height="20">
+                        </span>--}}
+
+                        <h1 class="text-white"><span class="logo-lg">
+                            <img src="{{ asset('admin/assets/images/LOGO UPFN.png') }}" class="logo-main" alt="Logo" height="70">UPFN
+
                     </a>
                 </div>
 

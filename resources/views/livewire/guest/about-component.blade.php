@@ -32,12 +32,12 @@
                 </div>
 
                 <div class="col-lg-7">
-                  <h4 class="pt-0 pt-lg-5">Empowering the Future with Comprehensive ICT Solutions</h4>
+                  <h4 class="pt-0 pt-lg-5">About Ummah Peace Foundation Network (UPFN) </h4>
                   <!-- Tabs -->
                   <ul class="nav nav-pills mb-3">
-                    <li><a class="nav-link active" data-bs-toggle="pill" href="#about-2-tab1">Our Services</a></li>
-                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab2">Why Choose Us</a></li>
-                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab3">What We Value</a></li>
+                    <li><a class="nav-link active" data-bs-toggle="pill" href="#about-2-tab1">Founding and Identity</a></li>
+                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab2">Vision and Mission</a></li>
+                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab3">Growth, Structure, and Programs</a></li>
                   </ul>
                   <!-- End Tabs -->
 
@@ -47,25 +47,31 @@
                     <!-- Services Tab -->
                     <div class="tab-pane fade show active" id="about-2-tab1">
 
-                      <p class="fst-italic">Success Tech Multi-Services delivers innovative, reliable, and scalable technology services tailored to meet your needs.</p>
+                      <p class="fst-italic">Ummah Peace Foundation Network (UPFN) was established to provide a platform for grassroots interfaith engagement and peacebuilding initiatives..</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Network Design & Infrastructure</h4>
+                        <h4>Year Established</h4>
                       </div>
-                      <p align="justify">We plan, install, and maintain secure and efficient wired and wireless network systems for businesses, schools, and institutions.</p>
+                      <p align="justify">Established in 2021 as a non-governmental organization committed to peace, interfaith harmony, and social cohesion..</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Website & Software Development</h4>
+                        <h4>Grassroots Focus</h4>
                       </div>
-                      <p align="justify">From corporate websites to custom applications, our development team builds responsive and user-friendly platforms that drive results.</p>
+                      <p align="justify">Founded from a strong grassroots passion for interfaith dialogue and understanding..</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Cybersecurity Solutions</h4>
+                        <h4>Founding Leadership</h4>
                       </div>
-                      <p align="justify">Protect your business with advanced firewall, antivirus, data protection, and security auditing services to keep threats at bay.</p>
+                      <p align="justify">Championed by Hajiya Rakiya Munkailu Ahmed, pioneer Financial Secretary of the Interfaith Dialogue Forum for Peace (IDFP), Nigeria.</p>
+
+                      <div class="d-flex align-items-center mt-4">
+                        <i class="bi bi-check2"></i>
+                        <h4>Global Inspiration</h4>
+                      </div>
+                      <p align="justify">Inspired by the International Dialogue Centre (KAICIID), formerly based in Vienna, Austria, now in Lisbon, Portugal.</p>
 
                     </div>
                     <!-- End Services Tab -->
@@ -73,25 +79,31 @@
                     <!-- Why Choose Us Tab -->
                     <div class="tab-pane fade" id="about-2-tab2">
 
-                      <p class="fst-italic">We don’t just provide ICT services — we build technology partnerships.</p>
+                      <p class="fst-italic">UPFN is guided by a clear vision and mission that promote peaceful coexistence and shared values across faiths and cultures.</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Experienced & Certified Experts</h4>
+                        <h4>Shared Vision</h4>
                       </div>
-                      <p align="justify">Our team consists of certified professionals with years of hands-on experience in ICT service delivery across various sectors.</p>
+                      <p align="justify">Envisions a world where people of all faiths and cultures live together in peace and harmony.</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Client-Centered Approach</h4>
+                        <h4>Mutual Respect</h4>
                       </div>
-                      <p align="justify">We listen, understand your unique goals, and customize our solutions to ensure optimal performance and satisfaction.</p>
+                      <p align="justify">Promotes respect for differences while encouraging collaboration for the common good.</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>End-to-End ICT Support</h4>
+                        <h4>Interfaith Engagement</h4>
                       </div>
-                      <p align="justify">From consultation to deployment and maintenance, we offer complete ICT solutions — allowing you to focus on what matters most.</p>
+                      <p align="justify">Advances interfaith harmony through education, dialogue, and community building.</p>
+
+                      <div class="d-flex align-items-center mt-4">
+                        <i class="bi bi-check2"></i>
+                        <h4>Inclusive Spaces</h4>
+                      </div>
+                      <p align="justify">Creates safe and inclusive spaces to promote peace and social justice.</p>
 
                     </div>
                     <!-- End Why Choose Us Tab -->
@@ -99,25 +111,32 @@
                     <!-- What We Value Tab -->
                     <div class="tab-pane fade" id="about-2-tab3">
 
-                      <p class="fst-italic">At Khahus, we’re driven by values that shape how we serve and innovate.</p>
+                      <p class="fst-italic">The organization operates through inclusive membership, strong governance, and impactful community programs.</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Innovation</h4>
+                        <h4>Inclusive Membership</h4>
                       </div>
-                      <p align="justify">We constantly explore new technologies and solutions to ensure our clients stay ahead in a fast-paced digital world.</p>
+                      <p align="justify">Has grown to include members from Muslim and Christian communities and welcomes adherents of other religions..</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Integrity</h4>
+                        <h4>Organizational Structure</h4>
                       </div>
-                      <p align="justify">Trust is the core of every successful relationship. We uphold transparency, honesty, and accountability in everything we do.</p>
+                      <p align="justify">Operates through a structured system comprising a Board of Trustees, Board of Directors, stakeholders, office staff, and volunteers.</p>
 
                       <div class="d-flex align-items-center mt-4">
                         <i class="bi bi-check2"></i>
-                        <h4>Excellence</h4>
+                        <h4>Program Delivery</h4>
                       </div>
-                      <p align="justify">We’re committed to delivering quality services that exceed expectations — no shortcuts, no compromises.</p>
+                      <p align="justify">Implements programs such as interfaith dialogue and workshops, community events, educational programs, and advocacy and outreach initiatives.</p>
+
+                      <div class="d-flex align-items-center mt-4">
+                        <i class="bi bi-check2"></i>
+                        <h4>Grassroots Impact</h4>
+                      </div>
+                      <p align="justify">Focuses on strengthening understanding, unity, and peaceful coexistence at the grassroots level..</p>
+
 
                     </div>
                     <!-- End What We Value Tab -->
@@ -132,46 +151,7 @@
 
           </section>
 
-        <!-- Stats Section -->
-        <section id="stats" class="stats section light-background">
-
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row gy-4">
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Clients</p>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Projects</p>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Hours Of Support</p>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Workers</p>
-                </div>
-              </div><!-- End Stats Item -->
-
-            </div>
-
-          </div>
-
-        </section><!-- /Stats Section -->
+        
 
         <!-- Team Section -->
         <section id="team" class="team section">

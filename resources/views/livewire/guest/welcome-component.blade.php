@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="title">Khahus</x-slot>
+    <x-slot name="title">UPFN</x-slot>
     <x-slot name="logo">{{ asset('img/dt.png') }}</x-slot>
 
     @section('welcome') active @endsection
@@ -14,10 +14,9 @@
             <div class="carousel-item active">
               <img src="{{ asset('assets/img/hero-carousel/hero1.jpg') }}" alt="">
               <div class="carousel-container">
-                <h2>Welcome to Khahus Consulting Solution LTD</h2>
+                <h2>Welcome to UPFN (Ummah Peace Foundation Network)</h2>
                 <p>
-                  Khahus is your trusted partner in delivering innovative and end-to-end ICT solutions. From custom software development and network infrastructure to cybersecurity, cloud services, and IT training — we empower businesses, institutions, and individuals to thrive in a digital-first world.
-                </p>
+                  (UPFN) is a non-governmental organization established to foster peace, strengthen social cohesion, and support community development through education, humanitarian assistance, advocacy, and sustainable programs. </p>
                 <a href="{{ route('contact') }}" class="btn-get-started">Get Started</a>
               </div>
             </div><!-- End Carousel Item -->
@@ -25,10 +24,9 @@
             <div class="carousel-item">
               <img src="{{ asset('assets/img/hero-carousel/hero2.png') }}" alt="">
               <div class="carousel-container">
-                <h2>Smart Solutions for a Connected Future</h2>
+                <h2> Community Empowerment</h2>
                 <p>
-                  At Khahus Consulting Solution LTD, we harness technology to simplify how people connect, work, and grow. Whether you're building a digital business, modernizing infrastructure, or securing data, our team is here to provide innovative solutions that drive real impact.
-                </p>
+UPFN supports education, humanitarian assistance, and skills development to uplift vulnerable groups and improve overall quality of life </p>
                 <a href="{{ route('contact') }}" class="btn-get-started">Get Started</a>
               </div>
             </div><!-- End Carousel Item -->
@@ -36,10 +34,9 @@
             <div class="carousel-item">
               <img src="{{ asset('assets/img/hero-carousel/hero3.jpg') }}" alt="">
               <div class="carousel-container">
-                <h2>Reliable ICT Services Backed by Expertise</h2>
+                <h2>Peace, Unity &  Sustainable Impact </h2>
                 <p>
-                  With a team of certified professionals and a customer-first approach, Khahus delivers quality ICT services tailored to your goals. From cloud computing to software support, we’re committed to excellence, security, and long-term value.
-                </p>
+Through advocacy, partnerships, and grassroots action, UPFN fosters lasting social change and builds resilient, inclusive communities.</p>
                 <a href="{{ route('contact') }}" class="btn-get-started">Get Started</a>
               </div>
 
@@ -75,20 +72,18 @@
               <!-- Left Content -->
               <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
                 <p align="justify">
-                    Khahus Consulting Solution LTD is a leading technology solutions provider committed to delivering innovative, secure, and scalable ICT services. We work with businesses, institutions, and individuals to build efficient systems, improve connectivity, and drive digital transformation.
-                </p>
+                    Ummah Peace Foundation Network (UPFN), part of our goals;</p>
                 <ul>
-                  <li><i class="bi bi-check2-circle"></i> <span>Custom software, website, and mobile app development tailored to your goals.</span></li>
-                  <li><i class="bi bi-check2-circle"></i> <span>Reliable IT infrastructure, networking, and cloud-based services.</span></li>
-                  <li><i class="bi bi-check2-circle"></i> <span>Hands-on ICT training and responsive technical support for all users.</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Promotes peace, unity, and social harmony within communities.</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Encourages mutual understanding through dialogue and awareness programs.</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Strengthens community engagement and cooperation through social initiatives.</span></li>
                 </ul>
               </div>
 
               <!-- Right Content -->
               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                 <p align="justify">
-                  With a team of experienced professionals and a customer-centric approach, Consulting Solution LTD has helped organizations across sectors embrace the power of technology. Our mission is to simplify ICT for everyone — from small startups to large enterprises — by offering solutions that are practical, efficient, and future-ready.
-                </p>
+                  With a dedicated team of experienced volunteers and professionals, Ummah Peace Foundation Network (UPFN) supports communities through people-centered initiatives. Our mission is to promote peace, unity, and social development by delivering programs that are inclusive, impactful, and sustainable for individuals and communities of all sizes. </p>
                 <a href="{{ route('about') }}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
@@ -99,42 +94,8 @@
         </section>
 
 
-        <!-- Clients Section -->
-        <section id="clients" class="clients section light-background">
 
-          <div class="container" data-aos="fade-up">
 
-            <div class="row gy-4">
-
-              <div class="col-xl-2 col-md-3 col-6 client-logo">
-                <img src="{{ asset('assets/img/clients/client-1.png') }}" class="img-fluid" alt="">
-              </div><!-- End Client Item -->
-
-              <div class="col-xl-2 col-md-3 col-6 client-logo">
-                <img src="{{ asset('assets/img/clients/client-2.png') }}" class="img-fluid" alt="">
-              </div><!-- End Client Item -->
-
-              <div class="col-xl-2 col-md-3 col-6 client-logo">
-                <img src="{{ asset('assets/img/clients/client-3.png') }}" class="img-fluid" alt="">
-              </div><!-- End Client Item -->
-
-              <div class="col-xl-2 col-md-3 col-6 client-logo">
-                <img src="{{ asset('assets/img/clients/client-4.png') }}" class="img-fluid" alt="">
-              </div><!-- End Client Item -->
-
-              <div class="col-xl-2 col-md-3 col-6 client-logo">
-                <img src="{{ asset('assets/img/clients/client-5.png') }}" class="img-fluid" alt="">
-              </div><!-- End Client Item -->
-
-              <div class="col-xl-2 col-md-3 col-6 client-logo">
-                <img src="{{ asset('assets/img/clients/client-6.png') }}" class="img-fluid" alt="">
-              </div>
-
-            </div>
-
-          </div>
-
-        </section><!-- /Clients Section -->
 
 
         <section id="about-values" class="services section bg-light py-5">
@@ -143,7 +104,7 @@
 
             <div class="section-title text-center" data-aos="fade-up">
               <h2>Who We Are</h2>
-              <p>Our Mission, Vision & Core Values at Consulting Solution LTD</p>
+              <p>Our Mission, Vision & Core Values at UPFN</p>
             </div>
 
             <div class="row gy-4 justify-content-center">
@@ -152,8 +113,7 @@
                     <i class="bi bi-bullseye icon text-primary mb-3" style="font-size: 2rem;"></i>
                     <h4 class="title">Our Mission</h4>
                     <p class="description">
-                      To empower businesses, institutions, and individuals with cutting-edge ICT solutions that drive innovation, simplify operations, and enable sustainable growth.
-                    </p>
+                      Our mission is to foster understanding, tolerance, and cooperation among people of all faiths and cultures by promoting peace, unity, and community development through education, advocacy, and inclusive programs that create positive and lasting impact.</p>
                   </div>
                 </div>
 
@@ -163,8 +123,7 @@
                     <i class="bi bi-eye icon text-success mb-3" style="font-size: 2rem;"></i>
                     <h4 class="title">Our Vision</h4>
                     <p class="description">
-                      To be a leading ICT company recognized for transforming ideas into intelligent digital solutions that connect people and power progress across Africa and beyond.
-                    </p>
+                   We envision a world where people of all faiths and culture can come together in peace and harmony, respecting each other's differences and working towards a common goal of creating a better world for all </p>
                   </div>
                 </div>
             </div>
@@ -174,68 +133,45 @@
               <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
                   <i class="bi bi-lightbulb-fill icon text-danger mb-3" style="font-size: 2rem;"></i>
-                  <h5 class="title">Innovation & Creativity</h5>
-                  <p class="description">We strive to think beyond boundaries and drive creative solutions.</p>
-                </div>
+                  <h5 class="title">Interfaith Dialogue & Workshops:</h5>
+                  <p class="description">We strive in Facilitating conversations to promote understanding between different faiths. </div>
               </div>
-            
-              <!-- Excellence & Professionalism -->
-              <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
-                  <i class="bi bi-award-fill icon text-danger mb-3" style="font-size: 2rem;"></i>
-                  <h5 class="title">Excellence & Professionalism</h5>
-                  <p class="description">We uphold the highest standards in everything we do.</p>
-                </div>
-              </div>
-            
+
+
+
               <!-- Integrity & Transparency -->
               <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
                   <i class="bi bi-shield-check icon text-danger mb-3" style="font-size: 2rem;"></i>
-                  <h5 class="title">Integrity & Transparency</h5>
-                  <p class="description">We build trust through honesty and openness.</p>
-                </div>
+                  <h5 class="title">Educational Programs</h5>
+                  <p class="description">We strive in Providing learning opportunities on peace, tolerance, and social harmony.</div>
               </div>
-            
-              <!-- Client-Centered Service -->
-              <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
-                  <i class="bi bi-people-fill icon text-danger mb-3" style="font-size: 2rem;"></i>
-                  <h5 class="title">Client-Centered Service</h5>
-                  <p class="description">Your satisfaction is our top priority — always.</p>
-                </div>
-              </div>
-            
+
+
+
               <!-- Collaboration & Growth -->
               <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
                 <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
                   <i class="bi bi-graph-up-arrow icon text-danger mb-3" style="font-size: 2rem;"></i>
-                  <h5 class="title">Collaboration & Growth</h5>
-                  <p class="description">Together, we grow stronger and achieve more.</p>
+                  <h5 class="title">Community Events</h5>
+                  <p class="description">we Organize activities that bring people together to foster unity and social cohesion..</p>
                 </div>
               </div>
-            
-              <!-- Adaptability & Learning -->
-              <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
-                  <i class="bi bi-arrow-repeat icon text-danger mb-3" style="font-size: 2rem;"></i>
-                  <h5 class="title">Adaptability & Learning</h5>
-                  <p class="description">We evolve, adapt, and embrace continuous learning.</p>
-                </div>
-              </div>
+
+
             </div>
-            
+
 
           </div>
 
         </section>
 
 
-        <section id="testimonials" class="testimonials section">
+      {{--  <section id="testimonials" class="testimonials section">
           <div class="container">
             <div class="section-title text-center" data-aos="fade-up">
-              <h2>What Our Clients Say</h2>
-              <p>Hear from organizations we've empowered with smart ICT solutions</p>
+              <h2>Latest Programes</h2>
+              <p>Programs</p>
             </div>
             <div class="row gy-4">
 
@@ -290,14 +226,15 @@
 
           </div>
 
-        </section>
+        </section>--}}
 
 
-        {{-- <section id="about-values" class="services section bg-light py-5">
+
+         <section id="about-values" class="services section bg-light py-5">
           <div class="container">
             <div class="section-title text-center" data-aos="fade-up">
-              <h2>What Our Clients Say</h2>
-              <p>Hear from organizations we've empowered with smart ICT solutions</p>
+              <h2>What the World Say About Us</h2>
+              <p>Hear from organizations we've empowered</p>
             </div>
 
             <div class="row gy-4 justify-content-center">
@@ -306,9 +243,9 @@
               <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
                   <i class="bi bi-briefcase-fill icon text-primary mb-3" style="font-size: 2rem;"></i>
-                  <h4 class="title">IT Consultancy</h4>
+                  <h4 class="title">Peace Keeping</h4>
                   <p class="description">
-                    "Khahus helped us restructure our IT department, streamline operations, and implement best practices. Their consulting team gave us clarity and confidence in our tech direction."
+                    "UPFN helped us restructure our IT department, streamline operations, and implement best practices. Their consulting team gave us clarity and confidence in our tech direction."
                   </p>
                 </div>
               </div>
@@ -317,9 +254,9 @@
               <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
                   <i class="bi bi-code-slash icon text-success mb-3" style="font-size: 2rem;"></i>
-                  <h4 class="title">Web Application Development</h4>
+                  <h4 class="title">Educational Support</h4>
                   <p class="description">
-                    "We partnered with Khahus to build a custom web portal for our staff and clients. The result was intuitive, secure, and tailored to our workflow. We highly recommend their team."
+                    "We partnered with UNICEF to build a custom web portal for our staff and clients. The result was intuitive, secure, and tailored to our workflow. We highly recommend their team."
                   </p>
                 </div>
               </div>
@@ -328,9 +265,9 @@
               <div class="col-md-12 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-item d-flex flex-column text-center h-100 p-4 shadow-sm bg-white rounded">
                   <i class="bi bi-shield-check icon text-warning mb-3" style="font-size: 2rem;"></i>
-                  <h4 class="title">Cybersecurity Services</h4>
+                  <h4 class="title">Community Services</h4>
                   <p class="description">
-                    "Khahus conducted a full security audit and implemented protective measures for our data and network. We now run safer, faster, and fully compliant with industry standards."
+                    "UPFN conducted a full security audit and implemented protective measures for our data and network. We now run safer, faster, and fully compliant with industry standards."
                   </p>
                 </div>
               </div>
@@ -339,7 +276,7 @@
 
           </div>
 
-        </section> --}}
+        </section>
 
 
       </main>

@@ -41,24 +41,24 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-settings"></i>
-                        <span>Projects/Portfolio</span>
+                        <span>Programs</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('project.create') }}">Add Project</a></li>
-                        <li><a href="{{ route('project.index') }}">Manage Projects</a></li>
+                        <li><a href="{{ route('project.create') }}">Add Program</a></li>
+                        <li><a href="{{ route('project.index') }}">Manage Programs</a></li>
                     </ul>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-frequently-asked-questions"></i>
-                        <span>Services</span>
+                        <span>Projects</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('service.create') }}">Add Service</a></li>
-                        <li><a href="{{ route('service.index') }}">Manage Services</a></li>
+                   <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('service.create') }}">Add Project</a></li>
+                        <li><a href="{{ route('service.index') }}">Manage Projects</a></li>
                     </ul>
-                </li>
+                </li>--}}
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

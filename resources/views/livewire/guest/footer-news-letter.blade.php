@@ -1,7 +1,6 @@
 <div>
     <h4>Our Newsletter</h4>
-    <p>Subscribe to our Newsletter and stay updated on the latest in technology, consulting, and digital
-        transformation.!</p>
+    <p>Subscribe to our Newsletter and stay updated on the latest program</p>
     <form wire:submit.prevent="subscribe" class="php-email-form">
         <div class="newsletter-form">
             <input type="email" wire:model="email" required>
@@ -18,6 +17,6 @@
                 {{ $success }}
             </div>
         @endif
-        
+
     </form>
 </div>
