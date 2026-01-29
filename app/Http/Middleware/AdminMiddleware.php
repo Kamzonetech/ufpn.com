@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
@@ -19,15 +19,17 @@ class AdminMiddleware
     {
         $auth_user_type = Auth::user()->user_type;
 
-        if(Auth::user()->user_type==="Admin"){
-            if(Auth::user()->status=="Active"){
+        if (Auth::user()->user_type === 'Admin' || Auth::user()->user_type === 'Staff') {
+            if (Auth::user()->status == 'Active') {
                 return $next($request);
-            }else{
+            } else {
                 Session::flush();
-                return redirect()->route('login')->with("errorfeedback","Sorry your account is disabled kindly contact support for assistance");
+
+                return redirect()->route('login')->with('errorfeedback', 'Sorry your account is disabled kindly contact support for assistance');
             }
-        }else{
+        } else {
             Session::flush();
+
             return redirect()->route('login');
         }
     }
