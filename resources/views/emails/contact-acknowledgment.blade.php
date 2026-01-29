@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Thank You for Contacting Us</title>
     <style>
@@ -22,7 +23,7 @@
         }
 
         .email-header {
-            background-color: #04062e;
+            background-color: #00923F;
             padding: 20px;
             color: white;
             text-align: center;
@@ -42,7 +43,7 @@
 
         .highlight {
             font-weight: bold;
-            color: #04062e;
+            color: #00923F;
         }
 
         .email-footer {
@@ -57,7 +58,7 @@
             display: inline-block;
             padding: 12px 20px;
             color: white;
-            background-color: #04062e;
+            background-color: #00923F;
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
@@ -81,7 +82,7 @@
             }
 
             .email-header {
-                background-color: #04062e;
+                background-color: #00923F;
             }
 
             .highlight {
@@ -94,16 +95,17 @@
             }
 
             .btn {
-                background-color: #04062e;
+                background-color: #00923F;
             }
 
             .btn:hover {
-                background-color: #04062e;
-                color:#f4f4f4;
+                background-color: #00923F;
+                color: #f4f4f4;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="email-container">
@@ -116,12 +118,14 @@
         <div class="email-body">
             <p>Hello <span class="highlight">{{ $contact->name }}</span>,</p>
 
-            <p>We appreciate you reaching out to us. Your message has been received, and one of our team members will get back to you as soon as possible.</p>
+            <p>We appreciate you reaching out to us. Your message has been received, and one of our team members will
+                get back to you as soon as possible.</p>
 
             <p><strong>Your Message:</strong></p>
             <p>"{{ $contact->message }}"</p>
 
-            <p>If your inquiry is urgent, please feel free to <a href="mailto:{{ config('mail.from.address') }}" class="highlight">email us directly</a>.</p>
+            <p>If your inquiry is urgent, please feel free to <a href="mailto:{{ config('mail.from.address') }}"
+                    class="highlight">email us directly</a>.</p>
 
             <br>
 
@@ -138,4 +142,5 @@
     </div>
 
 </body>
+
 </html>

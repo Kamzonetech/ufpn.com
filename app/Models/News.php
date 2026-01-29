@@ -13,7 +13,37 @@ class News extends Model
         'description',
         'photo',
         'user_id',
+        'media_type',
     ];
+
+    public function getMediaTypeAttribute($value)
+    {
+        if (!$value && $this->photo) {
+            $extension = pathinfo($this->photo, PATHINFO_EXTENSION);
+            $videoExtensions = ['mp4', 'avi', 'mov', 'wmv', 'flv', 'mkv', 'webm', 'm4v', '3gp'];
+            return in_array(strtolower($extension), $videoExtensions) ? 'video' : 'image';
+        }
+        return $value;
+    }
+
+    // Helper method to check if it's a video
+    public function getIsVideoAttribute()
+    {
+        return $this->media_type === 'video';
+    }
+
+    // Helper method to check if it's an image
+    public function getIsImageAttribute()
+    {
+        return $this->media_type === 'image';
+    }
+
+    // Get media URL
+    public function getMediaUrlAttribute()
+    {
+        if (!$this->photo) return null;
+        return asset('admin/assets/images/news/' . $this->photo);
+    }
 
     public static function boot()
     {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en">
 
 <head>
 
@@ -12,11 +12,12 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('/admin/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/admin/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('/admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('/admin/assets/css/app.min.css') }}"  id="app-style"  rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/admin/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -27,13 +28,16 @@
                 <div class="col-md-8 col-lg-6 col-xl-5">
                     <div class="card shadow-lg border-0 rounded-lg overflow-hidden">
 
-                        <div class="bg-login text-center p-4" style="background: linear-gradient(to right, #04062e, #070b4d);">
+                        <div class="bg-login text-center p-4"
+                            style="background: linear-gradient(to right, #00923F, #055728);">
                             <div class="position-relative">
-                                <h5 class="text-white fw-bold font-size-22 mb-2">UPFN (Ummah Peace Foundation Network)</h5>
+                                <h5 class="text-white fw-bold font-size-22 mb-2">UPFN (Ummah Peace Foundation Network)
+                                </h5>
                                 <p class="text-white-50 mb-3">Sign in to continue.</p>
                                 <a href="{{ route('welcome') }}" class="logo logo-admin">
 
-                                    <img src="{{ asset('admin/assets/images/LOGO UPFN2.png') }}" alt="Logo" height="55">
+                                    <img src="{{ asset('admin/assets/images/logo1.png') }}" alt="Logo"
+                                        height="55">
                                     {{-- <img src="{{ asset('admin/assets/images/logo-light.png') }}" alt="Logo" height="50"> --}}
                                     {{-- <img src="{{ asset('admin/assets/images/favicon.png') }}" alt="Logo" height="50"> --}}
                                 </a>
@@ -48,7 +52,8 @@
                                     @csrf
 
                                     <div class="form-floating mb-3">
-                                        <input type="email" name="email" class="form-control shadow-sm" id="email" placeholder="Email">
+                                        <input type="email" name="email" class="form-control shadow-sm"
+                                            id="email" placeholder="Email">
                                         <label for="email">Email</label>
                                         @error('email')
                                             <p class="text-danger small mt-1">{{ $message }}</p>
@@ -56,7 +61,8 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="password" name="password" class="form-control shadow-sm" id="userpassword" placeholder="Password">
+                                        <input type="password" name="password" class="form-control shadow-sm"
+                                            id="userpassword" placeholder="Password">
                                         <label for="userpassword">Password</label>
                                         @error('password')
                                             <p class="text-danger small mt-1">{{ $message }}</p>
@@ -65,7 +71,8 @@
 
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <div class="form-check">
-                                            <input type="checkbox" id="remember_me" name="remember" class="form-check-input">
+                                            <input type="checkbox" id="remember_me" name="remember"
+                                                class="form-check-input">
                                             <label class="form-check-label small" for="remember_me">Remember me</label>
                                         </div>
                                         <a href="{{ route('password.request') }}" class="text-muted small">
@@ -74,7 +81,8 @@
                                     </div>
 
                                     <div class="d-grid">
-                                        <button onclick="disableButton(this)" style="background-color: #04062e" class="btn btn-success  shadow-lg fw-bold" type="submit">
+                                        <button onclick="disableButton(this)" style="background-color: #0291D9"
+                                            class="btn btn-success  shadow-lg fw-bold" type="submit">
                                             Login <i class="mdi mdi-login ms-1"></i>
                                         </button>
                                     </div>
@@ -102,8 +110,8 @@
             button.disabled = true;
             button.value = "submitting...."
             button.form.submit();
-       }
-       </script>
+        }
+    </script>
 </body>
 
 </html>

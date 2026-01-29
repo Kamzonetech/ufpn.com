@@ -565,13 +565,13 @@ body[data-layout=horizontal] .footer {
 .vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a {
   position: relative;
   width: calc(190px + var(--bs-sidebar-collapsed-width));
-  color: #04062e;
+  color: #00923F;
   background-color: var(--bs-sidebar-menu-hover-bg);
   -webkit-transition: none;
   transition: none;
 }
 .vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a i {
-  color: #04062e;
+  color: #00923F;
 }
 .vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a span {
   display: inline;
@@ -739,10 +739,10 @@ body[data-sidebar-size=small].vertical-collpsed .footer {
 }
 
 body[data-sidebar=colored] .vertical-menu {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 body[data-sidebar=colored] .navbar-brand-box {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 body[data-sidebar=colored] .navbar-brand-box .logo-dark {
   display: none;
@@ -964,7 +964,7 @@ body[data-layout=horizontal] #page-topbar {
     background-color: transparent;
   }
   .topnav .dropdown .dropdown-item.active, .topnav .dropdown .dropdown-item:active {
-    color: #04062e;
+    color: #00923F;
   }
   .topnav .arrow-down::after {
     right: 15px;
@@ -973,7 +973,7 @@ body[data-layout=horizontal] #page-topbar {
 }
 @media (min-width: 992px) {
   body[data-layout=horizontal][data-topbar=light] .topnav {
-    background-color: #04062e;
+    background-color: #00923F;
   }
   body[data-layout=horizontal][data-topbar=light] .topnav .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.5);
@@ -1110,7 +1110,7 @@ body[data-layout=horizontal][data-layout-size=boxed] .container-fluid, body[data
   }
   body[data-layout=detached] .vertical-menu .user-img img {
     padding: 6px;
-    border: 2px dashed #04062e;
+    border: 2px dashed #00923F;
   }
   body[data-layout=detached] #sidebar-menu {
     padding-bottom: 90px;
@@ -1401,7 +1401,7 @@ body[data-layout=detached] .page-title-box .breadcrumb-item.active, body[data-la
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #04062e;
+  background-color: #00923F;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1571,7 +1571,7 @@ small {
   display: block;
   width: 25%;
   height: 25%;
-  background-color: #04062e;
+  background-color: #00923F;
   border-radius: 100%;
   -webkit-animation: chase-dot-before 2s infinite ease-in-out both;
           animation: chase-dot-before 2s infinite ease-in-out both;
@@ -1791,7 +1791,7 @@ small {
   width: 24px;
   height: 24px;
   line-height: 24px;
-  color: #04062e;
+  color: #00923F;
   background-color: rgba(59, 93, 231, 0.25);
   font-size: 20px;
   border-radius: 50%;
@@ -1851,7 +1851,7 @@ small {
   margin-top: 24px;
 }
 .icon-demo-content .col-lg-4:hover i {
-  color: #04062e;
+  color: #00923F;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
@@ -2194,7 +2194,7 @@ small {
 .fc-state-down,
 .fc-state-active,
 .fc-state-disabled {
-  background-color: #04062e;
+  background-color: #00923F;
   color: #fff;
   text-shadow: none;
 }
@@ -2211,7 +2211,7 @@ small {
 
 .fc-event,
 .fc-event-dot {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 
 .fc-event .fc-content {
@@ -2309,11 +2309,11 @@ small {
 }
 
 .irs--round .irs-bar, .irs--round .irs-to, .irs--round .irs-from, .irs--round .irs-single {
-  background: #04062e !important;
+  background: #00923F !important;
   font-size: 11px;
 }
 .irs--round .irs-to:before, .irs--round .irs-from:before, .irs--round .irs-single:before {
-  border-top-color: #04062e;
+  border-top-color: #00923F;
 }
 .irs--round .irs-line {
   background: var(--bs-tertiary-bg);
@@ -2329,7 +2329,7 @@ small {
   font-size: 11px;
 }
 .irs--round .irs-handle {
-  border: 2px solid #04062e;
+  border: 2px solid #00923F;
   width: 12px;
   height: 12px;
   top: 31px;
@@ -2372,21 +2372,21 @@ small {
 }
 
 .swal2-progress-steps .swal2-progress-step {
-  background: #04062e;
+  background: #00923F;
 }
 .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
-  background: #04062e;
+  background: #00923F;
 }
 .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step, .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line {
   background: rgba(59, 93, 231, 0.3);
 }
 .swal2-progress-steps .swal2-progress-step-line {
-  background: #04062e;
+  background: #00923F;
 }
 
 .swal2-actions.swal2-loading .swal2-styled.swal2-confirm {
-  border-left-color: #04062e !important;
-  border-right-color: #04062e !important;
+  border-left-color: #00923F !important;
+  border-right-color: #00923F !important;
 }
 
 .swal2-html-container {
@@ -2478,14 +2478,14 @@ small {
   outline: none;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 .select2-container--default .select2-results__option[aria-selected=true] {
   background-color: var(--bs-tertiary-bg);
   color: var(--bs-body-color);
 }
 .select2-container--default .select2-results__option[aria-selected=true]:hover {
-  background-color: #04062e;
+  background-color: #00923F;
   color: #fff;
 }
 .select2-container--default .select2-results__option--selected {
@@ -2608,11 +2608,11 @@ input[switch] + label:after {
   transition: all 0.1s ease-in-out;
 }
 input[switch]:checked + label {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 
 input[switch]:checked + label {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 input[switch]:checked + label:before {
   color: #fff;
@@ -2643,7 +2643,7 @@ input[switch=default]:checked + label {
 }
 
 input[switch=primary]:checked + label {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 
 input[switch=success]:checked + label {
@@ -2702,7 +2702,7 @@ input[switch=dark]:checked + label {
 .datepicker table tr td .active.disabled, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover,
 .datepicker table tr td span.active.active,
 .datepicker table tr td span.active:hover.active {
-  background-color: #04062e !important;
+  background-color: #00923F !important;
   background-image: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -2749,10 +2749,10 @@ input[switch=dark]:checked + label {
 }
 .datepicker-panel > ul > li.picked, .datepicker-panel > ul > li.picked:hover {
   background-color: rgba(59, 93, 231, 0.25);
-  color: #04062e;
+  color: #00923F;
 }
 .datepicker-panel > ul > li.highlighted, .datepicker-panel > ul > li.highlighted:hover, .datepicker-panel > ul > li:hover {
-  background-color: #04062e;
+  background-color: #00923F;
   color: #fff;
 }
 .datepicker-panel > ul > li.muted, .datepicker-panel > ul > li.muted:hover {
@@ -2918,7 +2918,7 @@ input[switch=dark]:checked + label {
   border-radius: 5px;
 }
 .wizard > .steps .current a, .wizard > .steps .current a:active, .wizard > .steps .current a:hover {
-  background-color: #04062e;
+  background-color: #00923F;
   color: #fff;
 }
 .wizard > .steps .current a .number, .wizard > .steps .current a:active .number, .wizard > .steps .current a:hover .number {
@@ -2926,10 +2926,10 @@ input[switch=dark]:checked + label {
 }
 .wizard > .steps .disabled a, .wizard > .steps .disabled a:active, .wizard > .steps .disabled a:hover, .wizard > .steps .done a, .wizard > .steps .done a:active, .wizard > .steps .done a:hover {
   background-color: #c3cef8;
-  color: #04062e;
+  color: #00923F;
 }
 .wizard > .steps .disabled a .number, .wizard > .steps .disabled a:active .number, .wizard > .steps .disabled a:hover .number, .wizard > .steps .done a .number, .wizard > .steps .done a:active .number, .wizard > .steps .done a:hover .number {
-  border-color: #04062e;
+  border-color: #00923F;
 }
 .wizard > .steps .number {
   font-size: 16px;
@@ -2974,14 +2974,14 @@ input[switch=dark]:checked + label {
   margin: 0 0.5em;
 }
 .wizard > .actions a, .wizard > .actions a:active, .wizard > .actions a:hover {
-  background-color: #04062e;
+  background-color: #00923F;
   border-radius: 4px;
   padding: 8px 15px;
   color: #fff;
 }
 .wizard > .actions .disabled a, .wizard > .actions .disabled a:active, .wizard > .actions .disabled a:hover {
   opacity: 0.65;
-  background-color: #04062e;
+  background-color: #00923F;
   color: #fff;
   cursor: not-allowed;
 }
@@ -3041,7 +3041,7 @@ div.dataTables_wrapper div.dataTables_filter input {
   text-indent: 0 !important;
   line-height: 14px;
   content: "+";
-  background-color: #04062e;
+  background-color: #00923F;
 }
 
 div.dt-button-collection {
@@ -3060,8 +3060,8 @@ div.dt-button-collection {
   border: 1px solid #8687a7;
 }
 .table-rep-plugin .btn-group .btn-default.btn-primary {
-  background-color: #04062e;
-  border-color: #04062e;
+  background-color: #00923F;
+  border-color: #00923F;
   color: #fff;
   -webkit-box-shadow: 0 0 0 2px rgba(59, 93, 231, 0.5);
           box-shadow: 0 0 0 2px rgba(59, 93, 231, 0.5);
@@ -3140,8 +3140,8 @@ div.dt-button-collection {
   cursor: not-allowed;
 }
 .table-rep-plugin .checkbox-row input[type=checkbox]:checked + label::before {
-  background-color: #04062e;
-  border-color: #04062e;
+  background-color: #00923F;
+  border-color: #00923F;
 }
 .table-rep-plugin .checkbox-row input[type=checkbox]:checked + label::after {
   color: #fff;
@@ -3150,7 +3150,7 @@ div.dt-button-collection {
   background-color: var(--bs-tertiary-bg) !important;
 }
 .table-rep-plugin .fixed-solution .sticky-table-header {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 .table-rep-plugin .fixed-solution .sticky-table-header table {
   color: #fff;
@@ -3159,7 +3159,7 @@ div.dt-button-collection {
 @media (max-width: 991.98px) {
   .fixed-solution .sticky-table-header {
     top: 70px !important;
-    background-color: #04062e;
+    background-color: #00923F;
   }
   .fixed-solution .sticky-table-header table {
     color: #fff;
@@ -3297,7 +3297,7 @@ div.dt-button-collection {
   color: #fff;
   font-size: 16px;
   line-height: 40px;
-  background: #04062e;
+  background: #00923F;
   border-radius: 4px;
   padding: 10px 20px;
 }
@@ -3313,13 +3313,13 @@ div.dt-button-collection {
   bottom: -15px;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
-  border-top: 16px solid #04062e;
+  border-top: 16px solid #00923F;
 }
 .gmaps-overlay_arrow.below {
   top: -15px;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
-  border-bottom: 16px solid #04062e;
+  border-bottom: 16px solid #00923F;
 }
 
 .jvectormap-label {
@@ -3339,7 +3339,7 @@ div.dt-button-collection {
           box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
 }
 .checkout-tabs .nav-pills .nav-link.active {
-  background-color: #04062e;
+  background-color: #00923F;
 }
 .checkout-tabs .nav-pills .nav-link .check-nav-icon {
   font-size: 36px;
@@ -3362,8 +3362,8 @@ div.dt-button-collection {
 
 .bg-login-overlay {
   position: absolute;
-  background: -webkit-gradient(linear, left top, right top, from(#04062e), to(#04062e));
-  background: linear-gradient(to right, #04062e, #04062e);
+  background: -webkit-gradient(linear, left top, right top, from(#00923F), to(#00923F));
+  background: linear-gradient(to right, #00923F, #00923F);
   top: 0;
   right: 0;
   left: 0;
@@ -3523,8 +3523,8 @@ div.dt-button-collection {
   padding-left: 80px;
 }
 .message-list li.active, .message-list li.active:hover {
-  -webkit-box-shadow: inset 3px 0 0 #04062e;
-          box-shadow: inset 3px 0 0 #04062e;
+  -webkit-box-shadow: inset 3px 0 0 #00923F;
+          box-shadow: inset 3px 0 0 #00923F;
 }
 .message-list li.unread {
   background-color: var(--bs-tertiary-bg);

@@ -1,7 +1,7 @@
 <div>
     <x-slot name="title">News Updates</x-slot>
     @include('livewire.admin.news.modals.view-news-modal')
-    <div class="page-content" >
+    <div class="page-content">
 
         <!-- start page title -->
         <div class="row">
@@ -22,7 +22,7 @@
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-lg-12" >
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <x-search-bar wire:model.live="searchTerm" placeholder="Search news by title or description" />
@@ -33,9 +33,9 @@
                                     <thead>
                                         <tr>
                                             <th><b>#</b></th>
-                                            <th  class="desktopView"><b>Photo</b></th>
+                                            <th class="desktopView"><b>Photo</b></th>
                                             <th><b>News Title</b></th>
-                                            <th  class="desktopView"><b>News Description</b></th>
+                                            <th class="desktopView"><b>News Description</b></th>
                                             <th><b>Action</b></th>
                                         </tr>
                                     </thead>
@@ -45,10 +45,12 @@
                                                 vertical-align: middle;
                                                 white-space: wrap;
                                             }
+
                                             .table-responsive img {
                                                 max-width: 50px;
                                                 height: auto;
                                             }
+
                                             @media (max-width: 768px) {
                                                 .desktopView {
                                                     display: none;
@@ -58,30 +60,81 @@
                                         @foreach ($newsUpdates as $newsUpdate)
                                             <tr>
                                                 <td scope="row">{{ $sn = $sn + 1 }}</td>
-                                                <td  class="desktopView">
+                                                {{-- <td  class="desktopView">
                                                     <img src="{{ asset('admin/assets/images/news/'.$newsUpdate->photo) }}" class="rounded" alt="" height="48">
+                                                </td> --}}
+                                                <td class="desktopView">
+                                                    @if ($newsUpdate->photo)
+                                                        @php
+                                                            $extension = pathinfo(
+                                                                $newsUpdate->photo,
+                                                                PATHINFO_EXTENSION,
+                                                            );
+                                                            $isVideo = in_array(strtolower($extension), [
+                                                                'mp4',
+                                                                'webm',
+                                                                'ogg',
+                                                                'mov',
+                                                                'avi',
+                                                                'mkv',
+                                                            ]);
+                                                        @endphp
 
+                                                        @if ($isVideo)
+                                                            <div class="media-preview-wrapper position-relative"
+                                                                style="width: 48px; height: 48px;">
+                                                                <video class="rounded" height="48"
+                                                                    style="object-fit: cover; width: 100%; height: 100%;">
+                                                                    <source
+                                                                        src="{{ asset('admin/assets/images/news/' . $newsUpdate->photo) }}"
+                                                                        type="video/{{ $extension }}">
+                                                                </video>
+                                                                <div class="position-absolute top-0 start-0 bg-dark bg-opacity-50 text-white px-1"
+                                                                    style="font-size: 25px; border-radius: 3px 0 3px 0;">
+                                                                    <i class="fas fa-video"></i>
+                                                                </div>
+                                                            </div>
+                                                        @else
+                                                            <img src="{{ asset('admin/assets/images/news/' . $newsUpdate->photo) }}"
+                                                                class="rounded" alt="" height="48"
+                                                                style="object-fit: cover;">
+                                                        @endif
+                                                    @else
+                                                        <div class="bg-secondary rounded d-flex align-items-center justify-content-center"
+                                                            style="width: 48px; height: 48px;">
+                                                            <i class="fas fa-image text-light"></i>
+                                                        </div>
+                                                    @endif
                                                 </td>
-                                                <td>{{ $newsUpdate->title}}</td>
-                                                <td  class="desktopView">{!! Str::limit(strip_tags($newsUpdate->description),120) !!}</td>
+                                                <td>{{ $newsUpdate->title }}</td>
+                                                <td class="desktopView">{!! Str::limit(strip_tags($newsUpdate->description), 120) !!}</td>
                                                 <td>
-                                                    <div class="dropdown"> <button  class="btn btn-success" data-bs-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-dots-vertical m-0 text-white h5"></i> </button>
+                                                    <div class="dropdown"> <button class="btn btn-success"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                                class="mdi mdi-dots-vertical m-0 text-white h5"></i>
+                                                        </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewNewsModal" wire:click="setNews('{{ $newsUpdate->slug }}')" href="#">View</a>
-                                                            <a class="dropdown-item" href="{{ route('news.edit',$newsUpdate->id)}}">Edit</a>
-                                                            <a class="dropdown-item confirm-delete" wire:click="setActionId('{{ $newsUpdate->id }}')" href="#">Delete</a>
+                                                            <a class="dropdown-item" data-bs-toggle="modal"
+                                                                data-bs-target="#viewNewsModal"
+                                                                wire:click="setNews('{{ $newsUpdate->slug }}')"
+                                                                href="#">View</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('news.edit', $newsUpdate->id) }}">Edit</a>
+                                                            <a class="dropdown-item confirm-delete"
+                                                                wire:click="setActionId('{{ $newsUpdate->id }}')"
+                                                                href="#">Delete</a>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
-                                        @if(count($newsUpdates)<=0)
-                                        <tr>
-                                            <td colspan="6" class="text-center">
-                                                <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg&uid=R51823309&ga=GA1.2.224938283.1666624918&semt=sph"
-                                                alt="No results found" style="width: 150px; height: 100px;">
-                                                <p class="mt-2 text-danger">No record found!</p>
-                                            </td>
+                                        @if (count($newsUpdates) <= 0)
+                                            <tr>
+                                                <td colspan="6" class="text-center">
+                                                    <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg&uid=R51823309&ga=GA1.2.224938283.1666624918&semt=sph"
+                                                        alt="No results found" style="width: 150px; height: 100px;">
+                                                    <p class="mt-2 text-danger">No record found!</p>
+                                                </td>
                                             </tr>
                                         @endif
                                     </tbody>
@@ -165,7 +218,7 @@
                 fileReader.onload = function(e) {
                     $('#ImageToCrop').attr('src', e.target.result);
                     // window.addEventListener('image_file', event => {
-                        $('#image_modal').modal('show');
+                    $('#image_modal').modal('show');
                     // });
                 };
 
