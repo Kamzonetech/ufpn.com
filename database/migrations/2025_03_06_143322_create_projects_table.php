@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('date');
             $table->longText('description');
             $table->string('photo')->default('project1.jpg')->nullable();
+            $table->enum('media_type', ['image', 'video'])->default('image');
             $table->timestamps();
         });
     }

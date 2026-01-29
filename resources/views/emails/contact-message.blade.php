@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>New Contact Message</title>
     <style>
@@ -22,7 +23,7 @@
         }
 
         .email-header {
-            background-color: #04062e;
+            background-color: #00923F;
             padding: 20px;
             color: white;
             text-align: center;
@@ -42,7 +43,7 @@
 
         .highlight {
             font-weight: bold;
-            color: #04062e;
+            color: #00923F;
         }
 
         .email-footer {
@@ -57,7 +58,7 @@
             display: inline-block;
             padding: 12px 20px;
             color: white;
-            background-color: #04062e;
+            background-color: #00923F;
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
@@ -81,7 +82,7 @@
             }
 
             .email-header {
-                background-color: #04062e;
+                background-color: #00923F;
             }
 
             .highlight {
@@ -94,7 +95,7 @@
             }
 
             .btn {
-                background-color: #04062e;
+                background-color: #00923F;
             }
 
             .btn:hover {
@@ -104,6 +105,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="email-container">
@@ -135,4 +137,5 @@
     </div>
 
 </body>
+
 </html>

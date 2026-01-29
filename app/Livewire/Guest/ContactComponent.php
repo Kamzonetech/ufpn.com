@@ -2,15 +2,21 @@
 
 namespace App\Livewire\Guest;
 
-use Livewire\Component;
+use App\Mail\ContactAcknowledgment;
+use App\Mail\ContactMessage;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMessage;
-use App\Mail\ContactAcknowledgment;
+use Livewire\Component;
 
 class ContactComponent extends Component
 {
-    public $name, $email, $subject, $message;
+    public $name;
+
+    public $email;
+
+    public $subject;
+
+    public $message;
 
     public function sendMessage()
     {
@@ -29,16 +35,16 @@ class ContactComponent extends Component
         ]);
 
         // Queue emails
-        Mail::to(config('mail.from.address'))->queue(new ContactMessage($contact));
-        Mail::to($this->email)->queue(new ContactAcknowledgment($contact));
+        // Mail::to(config('mail.from.address'))->queue(new ContactMessage($contact));
+        // Mail::to($this->email)->queue(new ContactAcknowledgment($contact));
 
         session()->flash('success', 'Your message has been sent successfully!');
 
-        $this->reset(['name', 'email', 'subject', 'message']);
+        $this->reset();
 
-        $this->resetValidation();
+        // $this->resetValidation();
 
-        $this->dispatch('clearForm');
+        // $this->dispatch('clearForm');
 
     }
 

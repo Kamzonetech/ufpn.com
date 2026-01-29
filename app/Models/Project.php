@@ -8,22 +8,56 @@ use Illuminate\Support\Str;
 class Project extends Model
 {
     protected $fillable = [
-        'title','slug','client','date','description', 'photo',
+        'title', 'slug', 'client', 'date', 'description', 'photo', 'media_type',
     ];
+
+    public function getMediaTypeAttribute($value)
+    {
+        if (! $value && $this->photo) {
+            $extension = pathinfo($this->photo, PATHINFO_EXTENSION);
+            $videoExtensions = ['mp4', 'avi', 'mov', 'wmv', 'flv', 'mkv', 'webm', 'm4v', '3gp'];
+
+            return in_array(strtolower($extension), $videoExtensions) ? 'video' : 'image';
+        }
+
+        return $value;
+    }
+
+    // helper method to get media URL
+    public function getMediaUrlAttribute()
+    {
+        if (! $this->photo) {
+            return null;
+        }
+
+        return asset('admin/assets/images/projects/'.$this->photo);
+    }
+
+    // helper method to check if it's a video
+    public function getIsVideoAttribute()
+    {
+        return $this->media_type === 'video';
+    }
+
+    // helper method to check if it's an image
+    public function getIsImageAttribute()
+    {
+        return $this->media_type === 'image';
+    }
 
     public static function boot()
     {
         parent::boot();
 
-        static::creating(function ($service) {
-            $baseSlug = Str::slug($service->title);
-            $service->slug = self::generateUniqueSlug($baseSlug);
+        static::creating(function ($project) {
+            $baseSlug = Str::slug($project->title);
+            $project->slug = self::generateUniqueSlug($baseSlug);
         });
 
-        static::updating(function ($service) {
-            if ($service->isDirty('title')) { // Only update slug if the title is changed
-                $baseSlug = Str::slug($service->title);
-                $service->slug = self::generateUniqueSlug($baseSlug, $service->id);
+        static::updating(function ($project) {
+            if ($project->isDirty('title')) { // Only update slug if the title is changed
+                $baseSlug = Str::slug($project->title);
+                $project->slug = self::generateUniqueSlug($baseSlug, $project->id);
             }
         });
     }
@@ -35,9 +69,10 @@ class Project extends Model
         while (self::where('slug', $slug)->when($ignoreId, function ($query) use ($ignoreId) {
             return $query->where('id', '!=', $ignoreId);
         })->exists()) {
-            $slug = $baseSlug . '-' . $count;
+            $slug = $baseSlug.'-'.$count;
             $count++;
         }
+
         return $slug;
     }
 }
