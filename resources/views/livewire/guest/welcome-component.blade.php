@@ -26,7 +26,7 @@
                 </div><!-- End Carousel Item -->
 
                 <div class="carousel-item">
-                    <img src="{{ asset('assets/img/hero-carousel/hero2.png') }}" alt="">
+                    <img src="{{ asset('assets/img/hero-carousel/hero2.jpg') }}" alt="">
                     <div class="carousel-container">
                         <h2> Community Empowerment</h2>
                         <p>
@@ -60,7 +60,9 @@
 
             </div>
 
-        </section><!-- /Hero Section -->
+        </section>
+        <!-- /Hero Section -->
+
 
         <!-- About Section -->
         <section id="about" class="about section">
@@ -339,14 +341,11 @@
             </div>
         </section>
 
-
-
-
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
-                <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Latest News</h6>
-                    <h2 class="mt-2">Stay Updated with Our Latest Articles</h2>
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold text-primary">Latest News</h2>
+                    <p class="text-muted">Stay Updated with Our Latest News Articles</p>
                 </div>
 
                 @if ($news->count())
@@ -509,6 +508,23 @@
 
     </main>
 </div>
+<script>
+    // Ensure Bootstrap Carousel initializes properly
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize the carousel with JavaScript as backup
+        var heroCarousel = document.getElementById('hero-carousel');
+        if (heroCarousel) {
+            var carousel = new bootstrap.Carousel(heroCarousel, {
+                interval: 5000, // 5 seconds
+                wrap: true, // Loop back to first slide
+                pause: 'hover' // Only pause on hover
+            });
+
+            // Optional: Force autoplay start
+            carousel.cycle();
+        }
+    });
+</script>
 <script>
     // Fullscreen toggle for videos
     function toggleFullscreen(videoId) {

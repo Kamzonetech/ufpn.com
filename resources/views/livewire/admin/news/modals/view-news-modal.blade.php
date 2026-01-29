@@ -2,23 +2,33 @@
     aria-labelledby="viewNewsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" wire:ignore.self>
         <div class="modal-content shadow-lg rounded">
-            <div class="modal-header text-white" style="background-color: #040525">
+            <div class="modal-header text-white" style="background-color: #00923F">
                 <h5 class="modal-title" id="viewNewsModalLabel" style="color: white;">
                     <i class="fas fa-newspaper me-2"></i> News Details
                 </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card border-0">
 
-                    @if($selNews)
+                    @if ($selNews)
                         <div class="card-body">
                             <div class="text-center mb-3">
-                                <img src="{{ asset('admin/assets/images/news/'.$selNews->photo) }}"
-                                    class="rounded img-fluid shadow-sm" alt="News Image"
-                                    style="max-width: 100%; height: 300px; object-fit: cover;">
+                                @if ($selNews->media_type == 'image')
+                                    <img src="{{ asset('admin/assets/images/news/' . $selNews->photo) }}"
+                                        class="rounded img-fluid shadow-sm" alt="News Image"
+                                        style="max-width: 100%; height: 300px; object-fit: cover;">
+                                @else
+                                    <video class="rounded img-fluid shadow-sm"
+                                        style="max-width: 100%; height: 300px; object-fit: cover;" controls>
+                                        <source src="{{ asset('admin/assets/images/news/' . $selNews->photo) }}"
+                                            type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                @endif
                             </div>
-                            <h2 class="text-center fw-bold mb-3" style="color: #040525">{{ $selNews->title }}</h2>
+                            <h2 class="text-center fw-bold mb-3" style="color: #00923F">{{ $selNews->title }}</h2>
                             <p class="text-muted" style="line-height: 1.6;">
                                 {!! $selNews->description !!}
                             </p>

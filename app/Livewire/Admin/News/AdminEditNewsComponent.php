@@ -51,7 +51,7 @@ class AdminEditNewsComponent extends Component
     public function updatedPhoto($photo)
     {
         $this->validate([
-            'photo' => 'nullable|max:20480', // 20MB
+            'photo' => 'nullable|max:51200',
         ]);
 
         if ($this->photo) {
@@ -93,11 +93,11 @@ class AdminEditNewsComponent extends Component
 
             if ($this->isImage($fileExtension)) {
                 $this->validateOnly($fields, [
-                    'photo' => 'nullable|mimes:jpg,jpeg,png,gif,webp,bmp|max:20480',
+                    'photo' => 'nullable|mimes:jpg,jpeg,png,gif,webp,bmp|max:51200',
                 ], $this->message);
             } elseif ($this->isVideo($fileExtension)) {
                 $this->validateOnly($fields, [
-                    'photo' => 'nullable|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:20480',
+                    'photo' => 'nullable|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:51200',
                 ], $this->message);
             } else {
                 $this->addError('photo', 'Unsupported file format!');
@@ -208,11 +208,11 @@ class AdminEditNewsComponent extends Component
 
             if ($this->isImage($fileExtension)) {
                 $this->validate([
-                    'photo' => 'nullable|mimes:jpg,jpeg,png,gif,webp,bmp|max:20480',
+                    'photo' => 'nullable|mimes:jpg,jpeg,png,gif,webp,bmp|max:51200',
                 ], $this->message);
             } elseif ($this->isVideo($fileExtension)) {
                 $this->validate([
-                    'photo' => 'nullable|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:20480',
+                    'photo' => 'nullable|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:51200',
                 ], $this->message);
             } else {
                 $this->addError('photo', 'Unsupported file format!');

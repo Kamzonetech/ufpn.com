@@ -392,7 +392,7 @@
 
                                         {{-- Action Button --}}
                                         <a href="{{ route('project.details', $project->slug) }}"
-                                            class="btn btn-sm btn-outline-danger w-100 d-flex justify-content-between align-items-center rounded-pill shadow-sm">
+                                            class="btn btn-sm btn-outline-success w-100 d-flex justify-content-between align-items-center shadow-sm">
                                             <span>View Details</span>
                                             <i class="bi bi-arrow-right"></i>
                                         </a>

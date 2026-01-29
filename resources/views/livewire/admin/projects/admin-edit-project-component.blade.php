@@ -25,45 +25,171 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
-                        <form name="news-post" id="news-post" wire:submit.prevent="updateProject(Object.fromEntries(new FormData($event.target)))" enctype="multipart/form-data">
+                        <form name="news-post" id="news-post"
+                            wire:submit.prevent="updateProject(Object.fromEntries(new FormData($event.target)))"
+                            enctype="multipart/form-data">
                             <div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control shadow-sm" wire:model="title" type="text" placeholder="Project Title">
+                                    <input class="form-control shadow-sm" wire:model="title" type="text"
+                                        placeholder="Project Title">
                                     <label class="form-label"><b>Program Title</b></label>
                                     @error('title')
                                         <p class="text-danger small mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="mb-3 position-relative">
-                                    <label class="form-label"><b>Image</b></label>
+
+                                <div class="mb-3">
+                                    <label class="form-label"><b>Current Media</b></label>
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <img src="{{ asset('admin/assets/images/projects/'.$selProject->photo)}}" class="rounded" alt="" height="48">
+                                        <div class="col-md-3">
+                                            @php
+                                                $extension = pathinfo($selProject->photo, PATHINFO_EXTENSION);
+                                                $isVideo = in_array(strtolower($extension), [
+                                                    'mp4',
+                                                    'avi',
+                                                    'mov',
+                                                    'wmv',
+                                                    'flv',
+                                                    'mkv',
+                                                    'webm',
+                                                    'm4v',
+                                                    '3gp',
+                                                ]);
+                                                $mediaUrl = asset('admin/assets/images/projects/' . $selProject->photo);
+                                            @endphp
+
+                                            @if ($isVideo)
+                                                <div class="position-relative">
+                                                    <div class="bg-dark rounded d-flex align-items-center justify-content-center"
+                                                        style="height: 120px; width: 100%;">
+                                                        <i class="fas fa-video fa-2x text-white"></i>
+                                                    </div>
+                                                    <div class="position-absolute top-0 start-0 m-1">
+                                                        <span class="badge bg-danger">VIDEO</span>
+                                                    </div>
+                                                    <small class="text-muted d-block mt-1 text-center">
+                                                        {{ strtoupper($extension) }}
+                                                    </small>
+                                                </div>
+                                            @else
+                                                <img src="{{ $mediaUrl }}" class="rounded img-fluid"
+                                                    alt="Current news image"
+                                                    style="max-height: 120px; object-fit: cover;">
+                                                <small class="text-muted d-block mt-1 text-center">
+                                                    Current Image
+                                                </small>
+                                            @endif
                                         </div>
-                                        <div class="col-md-10">
-                                            <div class="custom-file">
-                                                <div x-data="{ isUploading: false, progress: 5 }" x-on:livewire-upload-start="isUploading = true"
+                                        <div class="col-md-9">
+                                            <div class="mb-3">
+                                                <label class="form-label"><b>Change Media (Optional)</b></label>
+
+                                                <div x-data="{ isUploading: false, progress: 5 }"
+                                                    x-on:livewire-upload-start="isUploading = true"
                                                     x-on:livewire-upload-finish="isUploading = false; progress = 5"
                                                     x-on:livewire-upload-error="isUploading = false"
                                                     x-on:livewire-upload-progress="progress = $event.detail.progress">
 
                                                     <input id="croped_image" name="croped_image" type="text" hidden>
-                                                    <input class="form-control shadow-sm py-3" id="post_image" wire:model="photo" type="file"
-                                                        accept="image/*,video/*">
+                                                    <input class="form-control shadow-sm py-3" id="post_image"
+                                                        wire:model.live="photo" type="file" accept="image/*,video/*">
 
-                                                    <div class="progress mt-1" x-show.transition="isUploading">
-                                                        <div class="progress-bar bg-success progress-bar-striped"
+                                                    <!-- Upload Progress Bar -->
+                                                    <div class="progress mt-2" x-show.transition="isUploading">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
                                                             aria-valuenow="5" aria-valuemin="5" aria-valuemax="100"
                                                             x-bind:style="`width:${progress}%`" role="progressbar">
-                                                            <span class="sr-only">100% Complete (success)</span>
+                                                            <span class="sr-only">Uploading...</span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <label class="custom-file-label">
-                                                    @if ($photo)
-                                                        {{ $photo->getClientOriginalName() }}
-                                                    @endif
-                                                </label>
+
+                                                <!-- Help Text -->
+                                                <small class="text-muted d-block mt-1">
+                                                    Upload images (JPG, PNG, GIF, WebP, BMP) or videos (MP4, AVI, MOV,
+                                                    WMV, etc.) up to 50MB
+                                                </small>
+
+                                                <!-- File Preview -->
+                                                @if ($photo)
+                                                    @php
+                                                        $extension = strtolower($photo->getClientOriginalExtension());
+                                                        $isImage = in_array($extension, [
+                                                            'jpg',
+                                                            'jpeg',
+                                                            'png',
+                                                            'gif',
+                                                            'webp',
+                                                            'bmp',
+                                                        ]);
+                                                        $isVideo = in_array($extension, [
+                                                            'mp4',
+                                                            'avi',
+                                                            'mov',
+                                                            'wmv',
+                                                            'flv',
+                                                            'mkv',
+                                                            'webm',
+                                                            'm4v',
+                                                            '3gp',
+                                                        ]);
+                                                    @endphp
+
+                                                    <div class="mt-3 p-3 border rounded bg-light">
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center mb-2">
+                                                            <div>
+                                                                <small class="text-muted">
+                                                                    <strong>New file:</strong>
+                                                                    {{ $photo->getClientOriginalName() }}
+                                                                </small>
+                                                            </div>
+                                                            <div>
+                                                                <span
+                                                                    class="badge {{ $isImage ? 'bg-success' : 'bg-primary' }}">
+                                                                    {{ $isImage ? 'IMAGE' : 'VIDEO' }}
+                                                                </span>
+                                                                <span class="badge bg-secondary ms-1">
+                                                                    {{ number_format($photo->getSize() / 1024, 1) }} KB
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        @if ($isImage)
+                                                            <!-- Image Preview -->
+                                                            <div class="mt-2">
+                                                                <img src="{{ $photo->temporaryUrl() }}"
+                                                                    class="img-thumbnail" style="max-height: 150px;"
+                                                                    alt="Preview">
+                                                                <small class="text-muted d-block mt-1">
+                                                                    Image will be cropped to optimal size (1250×850)
+                                                                </small>
+                                                            </div>
+                                                        @elseif($isVideo)
+                                                            <!-- Video Preview -->
+                                                            <div class="mt-2">
+                                                                <div class="ratio ratio-16x9">
+                                                                    <video controls class="bg-dark rounded">
+                                                                        <source src="{{ $photo->temporaryUrl() }}"
+                                                                            type="video/{{ $extension }}">
+                                                                        Your browser does not support the video tag.
+                                                                    </video>
+                                                                </div>
+                                                                <small class="text-muted d-block mt-1">
+                                                                    Video will be uploaded as-is
+                                                                </small>
+                                                            </div>
+                                                        @endif
+
+                                                        <!-- Remove Button -->
+                                                        <div class="mt-3 text-end">
+                                                            <button type="button" class="btn btn-sm btn-outline-danger"
+                                                                wire:click="$set('photo', null)">
+                                                                <i class="fas fa-times me-1"></i> Remove New File
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -72,6 +198,7 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+
                                 <div class="mb-3 shadow-sm">
                                     <label class="form-label" for="description"><b>Program Description</b></label>
                                     <div wire:ignore>
@@ -82,14 +209,16 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control shadow-sm" wire:model="client" type="text" placeholder="Client">
-                                    <label class="form-label"><b>Client</b></label>
+                                    <input class="form-control shadow-sm" wire:model="client" type="text"
+                                        placeholder="Client">
+                                    <label class="form-label"><b>Beneficiary/Host</b></label>
                                     @error('client')
                                         <p class="text-danger small mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control shadow-sm" wire:model="date" type="date" placeholder="Date">
+                                    <input class="form-control shadow-sm" wire:model="date" type="date"
+                                        placeholder="Date">
                                     <label class="form-label"><b>Date</b></label>
                                     @error('date')
                                         <p class="text-danger small mt-1">{{ $message }}</p>
@@ -106,13 +235,17 @@
             </div>
         </div>
     </div>
+    @include('livewire.admin.cropper-modal.image_cropper')
 </div>
 
 @push('scripts')
-<script src="https://cdn.tiny.cloud/1/zw57y70pvsw1yyt6l6etfw152l8w6a7m81cechi2jlw40uuh/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
+    <script src="https://cdn.tiny.cloud/1/zw57y70pvsw1yyt6l6etfw152l8w6a7m81cechi2jlw40uuh/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
 
     <script>
+        // TinyMCE Editor
         tinymce.init({
             selector: '#message',
             height: 300,
@@ -128,9 +261,112 @@
             }
         });
 
+        // Set current content in editor
+        document.addEventListener('livewire:init', () => {
+            @this.on('refreshEditor', (content) => {
+                if (tinymce.activeEditor) {
+                    tinymce.activeEditor.setContent(content);
+                }
+            });
+        });
 
+        // Clear on success
         window.addEventListener('feedback', event => {
-            tinyMCE.activeEditor.setContent("");
+            if (tinymce.activeEditor) {
+                tinymce.activeEditor.setContent("");
+            }
+        });
+
+        // Image Cropper
+        $(document).ready(function() {
+            let cropper;
+            var finalCropWidth = 1250;
+            var finalCropHeight = 850;
+            var finalAspectRatio = finalCropWidth / finalCropHeight;
+
+            // Initialize the Cropper.js instance when the modal is shown
+            $('#image_modal').on('shown.bs.modal', function() {
+                cropper = new Cropper($('#ImageToCrop')[0], {
+                    aspectRatio: finalAspectRatio,
+                    viewMode: 1,
+                    autoCropArea: 0.8,
+                    dragMode: 'move',
+                    zoomable: true,
+                });
+            });
+
+            // Destroy the Cropper.js instance when the modal is hidden
+            $('#image_modal').on('hidden.bs.modal', function() {
+                if (cropper) {
+                    cropper.destroy();
+                    cropper = null;
+                }
+            });
+
+            // Show cropper only for images
+            document.getElementById('post_image').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const extension = file.name.split('.').pop().toLowerCase();
+                    const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'];
+
+                    if (imageExtensions.includes(extension)) {
+                        // It's an image, show cropper
+                        const fileReader = new FileReader();
+                        fileReader.onload = function(e) {
+                            $('#ImageToCrop').attr('src', e.target.result);
+                            $('#image_modal').modal('show');
+                        };
+                        fileReader.readAsDataURL(file);
+                    }
+                    // If it's a video, do nothing - no cropping needed
+                }
+            });
+
+            // Handle the "Crop and Upload" button click
+            $('#cropImage').on('click', function() {
+                if (cropper) {
+                    var imgurl = cropper.getCroppedCanvas({
+                        width: finalCropWidth,
+                        height: finalCropHeight
+                    }).toDataURL();
+                    $('#image_modal').modal('hide');
+                    document.getElementById('croped_image').value = imgurl;
+                }
+            });
         });
     </script>
+@endpush
+
+@push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <style>
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: 400px;
+            background-color: #f7f7f7;
+            overflow: hidden;
+        }
+
+        .progress-bar-animated {
+            animation: progress-bar-stripes 1s linear infinite;
+        }
+
+        @keyframes progress-bar-stripes {
+            from {
+                background-position: 1rem 0;
+            }
+
+            to {
+                background-position: 0 0;
+            }
+        }
+
+        .ratio-16x9 {
+            aspect-ratio: 16 / 9;
+        }
+    </style>
 @endpush

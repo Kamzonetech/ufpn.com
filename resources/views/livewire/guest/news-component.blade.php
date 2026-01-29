@@ -21,9 +21,9 @@
 
     <div class="container-xxl py-5">
         <div class="container px-lg-5">
-            <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="position-relative d-inline text-primary ps-4">Latest News</h6>
-                <h2 class="mt-2">Stay Updated with Our Latest Articles</h2>
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">Latest News</h2>
+                <p class="text-muted">Stay Updated with Our Latest News Articles</p>
             </div>
 
             @if ($news->count())
@@ -97,7 +97,7 @@
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <a href="{{ route('news.show', $new->slug) }}"
-                                            class="btn btn-sm btn-primary rounded-pill">
+                                            class="btn btn-sm btn-outline-success">
                                             Read More
                                         </a>
                                         <small class="text-muted">

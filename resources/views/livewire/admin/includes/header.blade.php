@@ -12,7 +12,7 @@
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="rounded-circle header-profile-user"
-                            src="{{ asset('admin/assets/images/users/' . Auth::user()->profile_photo_path) }}?t={{ now() }}"
+                            src="{{ asset('admin/assets/images/users/' . Auth::user()->profile_photo_path) }}"
                             alt="Header Avatar" id="profile-image">
                         <span class="d-none d-xl-inline-block ms-1">{{ Auth::user()->surname }}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>

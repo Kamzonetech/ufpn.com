@@ -11,6 +11,16 @@ class Project extends Model
         'title', 'slug', 'client', 'date', 'description', 'photo', 'media_type',
     ];
 
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class)->orderBy('order');
+    }
+
+    public function featuredImage()
+    {
+        return $this->hasOne(Gallery::class)->where('is_featured', true);
+    }
+
     public function getMediaTypeAttribute($value)
     {
         if (! $value && $this->photo) {

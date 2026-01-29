@@ -98,7 +98,7 @@
                                     <!-- Help Text -->
                                     <small class="text-muted d-block mt-1">
                                         Upload images (JPG, PNG, GIF, WebP, BMP) or videos (MP4, AVI, MOV, WMV, etc.) up
-                                        to 10MB
+                                        to 50MB
                                     </small>
 
                                     <!-- File Preview -->
