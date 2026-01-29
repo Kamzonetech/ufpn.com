@@ -179,8 +179,7 @@
                                                             <div class="play-button bg-white rounded-circle d-inline-flex 
                                                                         align-items-center justify-content-center shadow-lg"
                                                                 style="width: 60px; height: 60px; transition: all 0.3s ease;">
-                                                                <i class="fas fa-play text-dark fs-4"
-                                                                    style="margin-left: 3px;"></i>
+                                                                <i class="bi bi-play-circle text-success fs-4"></i>
                                                             </div>
                                                             <p class="text-white mt-2 mb-0 small fw-medium">
                                                                 Click to play
@@ -234,13 +233,13 @@
                                                             <div class="zoom-button bg-white rounded-circle d-inline-flex 
                                                                         align-items-center justify-content-center shadow"
                                                                 style="width: 50px; height: 50px;">
-                                                                <i class="fas fa-search-plus text-dark"></i>
+                                                                <i class="bi bi-zoom-in text-success"></i>
                                                             </div>
                                                         </div>
 
                                                         <div class="d-flex justify-content-end">
                                                             <span class="badge bg-dark bg-opacity-75 px-2 py-1">
-                                                                <i class="fas fa-expand-alt me-1"></i> View
+                                                                <i class="bi bi-zoom-in text-success me-1"></i> View
                                                             </span>
                                                         </div>
                                                     </div>
