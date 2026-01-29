@@ -108,7 +108,7 @@
 
         </section>
 
-        <section id="portfolio" class="portfolio section bg-light py-5">
+        <section id="portfolio" class="portfolio section py-5">
             <div class="container">
 
                 <!-- Section Title -->
@@ -121,225 +121,215 @@
                     <!-- Portfolio Grid -->
                     <div class="row g-4">
                         @foreach ($projects as $project)
+                            @php
+                                $extension = pathinfo($project->photo, PATHINFO_EXTENSION);
+                                $isVideo = in_array(strtolower($extension), [
+                                    'mp4',
+                                    'webm',
+                                    'ogg',
+                                    'mov',
+                                    'avi',
+                                    'mkv',
+                                    'm4v',
+                                    'wmv',
+                                    'flv',
+                                    '3gp',
+                                    'mpg',
+                                    'mpeg',
+                                ]);
+                                $mediaUrl = asset('admin/assets/images/projects/' . $project->photo);
+                                $modalId = 'mediaModal-' . $project->id;
+                            @endphp
+
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div
-                                    class="card border-0 shadow-lg h-100 transition-transform hover:-translate-y-1 hover:shadow-xl rounded-3 overflow-hidden">
+                                <div class="card border-0 shadow-lg h-100 rounded-3 overflow-hidden">
 
-                                    <div class="position-relative media-card-container">
-                                        @php
-                                            $extension = pathinfo($project->photo, PATHINFO_EXTENSION);
-                                            $isVideo = in_array(strtolower($extension), [
-                                                'mp4',
-                                                'webm',
-                                                'ogg',
-                                                'mov',
-                                                'avi',
-                                                'mkv',
-                                                'm4v',
-                                                'wmv',
-                                                'flv',
-                                                '3gp',
-                                                'mpg',
-                                                'mpeg',
-                                            ]);
-                                            $mediaUrl = asset('admin/assets/images/projects/' . $project->photo);
-                                            $thumbnailUrl = $mediaUrl;
+                                    <!-- Media Preview -->
+                                    <div class="position-relative"
+                                        style="height: 220px; overflow: hidden; cursor: pointer;" data-bs-toggle="modal"
+                                        data-bs-target="#{{ $modalId }}">
 
-                                            // Generate unique ID for modal
-                                            $modalId = 'mediaModal-' . $project->id;
+                                        @if ($isVideo)
+                                            <!-- Video Thumbnail -->
+                                            <video class="w-100 h-100" style="object-fit: cover;" muted>
+                                                <source src="{{ $mediaUrl }}#t=0.5"
+                                                    type="video/{{ $extension }}">
+                                            </video>
 
-                                            // Try to find video thumbnail
-                                            if ($isVideo) {
-                                                $baseName = pathinfo($project->photo, PATHINFO_FILENAME);
-                                                $possibleThumbnails = [
-                                                    $baseName . '.jpg',
-                                                    $baseName . '.jpeg',
-                                                    $baseName . '.png',
-                                                    $baseName . '_thumb.jpg',
-                                                    $baseName . '_thumbnail.jpg',
-                                                    $baseName . '_preview.jpg',
-                                                ];
-
-                                                foreach ($possibleThumbnails as $thumb) {
-                                                    $thumbPath = public_path('admin/assets/images/projects/' . $thumb);
-                                                    if (file_exists($thumbPath)) {
-                                                        $thumbnailUrl = asset('admin/assets/images/projects/' . $thumb);
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        @endphp
-
-                                        <div class="media-display-wrapper"
-                                            style="height: 220px; overflow: hidden; border-radius: 8px 8px 0 0; background: #f8f9fa;">
-
-                                            @if ($isVideo)
-                                                <!-- Video Display -->
-                                                <div class="video-wrapper h-100 position-relative"
-                                                    data-bs-toggle="modal" data-bs-target="#{{ $modalId }}"
-                                                    style="cursor: pointer;">
-
-                                                    @if ($thumbnailUrl !== $mediaUrl)
-                                                        <!-- Use thumbnail if available -->
-                                                        <img src="{{ $thumbnailUrl }}"
-                                                            class="card-img-top video-thumbnail"
-                                                            alt="{{ $project->title }}"
-                                                            style="object-fit: cover; height: 100%; width: 100%;">
-                                                    @else
-                                                        <!-- Fallback to video element -->
-                                                        <video class="card-img-top video-thumbnail" muted
-                                                            preload="metadata"
-                                                            style="object-fit: cover; height: 100%; width: 100%;">
-                                                            <source src="{{ $mediaUrl }}#t=0.5"
-                                                                type="video/{{ $extension }}">
-                                                        </video>
-                                                    @endif
-
-                                                    <!-- Video Overlay -->
-                                                    <div
-                                                        class="video-overlay position-absolute top-0 start-0 w-100 h-100 
-                                                                d-flex flex-column justify-content-between p-3">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <span class="badge bg-danger px-2 py-1">
-                                                                <i class="fas fa-video me-1"></i> VIDEO
-                                                            </span>
-                                                            <span class="badge bg-dark px-2 py-1">
-                                                                {{ strtoupper($extension) }}
-                                                            </span>
-                                                        </div>
-
-                                                        <div class="text-center">
-                                                            <div class="play-button bg-white rounded-circle d-inline-flex 
-                                                                        align-items-center justify-content-center shadow-lg"
-                                                                style="width: 60px; height: 60px; transition: all 0.3s ease;">
-                                                                <i class="fas fa-play text-dark fs-4"
-                                                                    style="margin-left: 3px;"></i>
-                                                            </div>
-                                                            <p class="text-white mt-2 mb-0 small fw-medium">
-                                                                Click to play
-                                                            </p>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-end">
-                                                            <span class="badge bg-dark bg-opacity-75 px-2 py-1">
-                                                                <i class="fas fa-expand-alt me-1"></i> Fullscreen
-                                                            </span>
-                                                        </div>
+                                            <!-- Video Overlay -->
+                                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                                                style="background: rgba(0,0,0,0.3);">
+                                                <div class="text-center">
+                                                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 60px; height: 60px;">
+                                                        <i class="bi bi-play-circle text-success fs-4"></i>
                                                     </div>
-
-                                                    <!-- Progress indicator for loading -->
-                                                    <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-25"
-                                                        style="height: 4px;">
-                                                        <div class="bg-primary" style="width: 30%; height: 100%;">
-                                                        </div>
-                                                    </div>
+                                                    <p class="text-white mt-2 mb-0 small">Click to play</p>
                                                 </div>
-                                            @else
-                                                <!-- Image Display -->
-                                                <div class="image-wrapper h-100 position-relative"
-                                                    data-bs-toggle="modal" data-bs-target="#{{ $modalId }}"
-                                                    style="cursor: pointer;">
+                                            </div>
 
-                                                    <img src="{{ $mediaUrl }}" class="card-img-top zoom-on-hover"
-                                                        alt="{{ $project->title }}"
-                                                        style="object-fit: cover; height: 100%; width: 100%; 
+                                            <!-- Video Badge -->
+                                            <span class="position-absolute top-0 start-0 m-2 badge bg-danger">
+                                                <i class="fas fa-video me-1"></i> VIDEO
+                                            </span>
+                                        @else
+                                            <!-- Image -->
+                                            <div class="image-wrapper h-100 position-relative" data-bs-toggle="modal"
+                                                data-bs-target="#{{ $modalId }}" style="cursor: pointer;">
+
+                                                <img src="{{ $mediaUrl }}" class="card-img-top zoom-on-hover"
+                                                    alt="{{ $project->title }}"
+                                                    style="object-fit: cover; height: 100%; width: 100%; 
                                                                 transition: transform 0.5s ease, filter 0.3s ease;"
-                                                        onerror="this.onerror=null; this.src='{{ asset('admin/assets/images/placeholder.jpg') }}'">
+                                                    onerror="this.onerror=null; this.src='{{ asset('admin/assets/images/placeholder.jpg') }}'">
 
-                                                    <!-- Image Overlay -->
-                                                    <div class="image-overlay position-absolute top-0 start-0 w-100 h-100 
+                                                <!-- Image Overlay -->
+                                                <div class="image-overlay position-absolute top-0 start-0 w-100 h-100 
                                                                 d-flex flex-column justify-content-between p-3 opacity-0"
-                                                        style="transition: opacity 0.3s ease;
+                                                    style="transition: opacity 0.3s ease;
                                                                 background: linear-gradient(to bottom, 
                                                                     rgba(0,0,0,0.3) 0%,
                                                                     rgba(0,0,0,0.1) 50%,
                                                                     rgba(0,0,0,0.3) 100%);">
 
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <span class="badge bg-success px-2 py-1">
-                                                                <i class="fas fa-image me-1"></i> IMAGE
-                                                            </span>
-                                                            <span class="badge bg-dark px-2 py-1">
-                                                                {{ strtoupper($extension) }}
-                                                            </span>
-                                                        </div>
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <span class="badge bg-success px-2 py-1">
+                                                            <i class="fas fa-image me-1"></i> IMAGE
+                                                        </span>
+                                                        <span class="badge bg-dark px-2 py-1">
+                                                            {{ strtoupper($extension) }}
+                                                        </span>
+                                                    </div>
 
-                                                        <div class="text-center">
-                                                            <div class="zoom-button bg-white rounded-circle d-inline-flex 
+                                                    <div class="text-center">
+                                                        <div class="zoom-button bg-white rounded-circle d-inline-flex 
                                                                         align-items-center justify-content-center shadow"
-                                                                style="width: 50px; height: 50px;">
-                                                                <i class="fas fa-search-plus text-dark"></i>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-end">
-                                                            <span class="badge bg-dark bg-opacity-75 px-2 py-1">
-                                                                <i class="fas fa-expand-alt me-1"></i> View
-                                                            </span>
+                                                            style="width: 50px; height: 50px;">
+                                                            <i class="bi bi-zoom-in text-success"></i>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endif
 
-                                            <!-- Media Type Indicator (Corner) -->
-                                            <div class="position-absolute top-0 end-0 m-2">
-                                                <div class="media-type-indicator rounded-circle shadow-sm 
-                                                            {{ $isVideo ? 'bg-danger' : 'bg-success' }}"
-                                                    style="width: 30px; height: 30px; 
-                                                            display: flex; align-items: center; justify-content: center;">
-                                                    <i
-                                                        class="fas {{ $isVideo ? 'fa-play' : 'fa-image' }} text-white fs-6"></i>
+                                                    <div class="d-flex justify-content-end">
+                                                        <span class="badge bg-dark bg-opacity-75 px-2 py-1">
+                                                            <i class="bi bi-zoom-in text-success me-1"></i> View
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
 
-                                    {{-- Card Body --}}
+                                    <!-- Card Body -->
                                     <div class="card-body d-flex flex-column px-4 py-4">
-
-                                        {{-- Title --}}
-                                        <h5 class="card-title fw-bold text-primary mb-2 text-truncate">
-                                            {{ Str::limit($project->title, 25) }}
+                                        <h5 class="card-title fw-bold text-primary mb-2">
+                                            {{ Str::limit($project->title, 50) }}
                                         </h5>
 
-                                        {{-- Meta Section --}}
-                                        <div
-                                            class="d-flex flex-column flex-sm-row justify-content-between align-items-start text-muted small mb-3 gap-2">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-calendar-event me-2 text-primary fs-6"></i>
-                                                <span><strong>Date:</strong> {{ $project->date }}</span>
+                                        <div class="d-flex flex-wrap gap-3 text-muted small mb-3">
+                                            <div>
+                                                <i class="bi bi-calendar-event me-1 text-primary"></i>
+                                                {{ $project->date }}
                                             </div>
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-person me-2 text-success fs-6"></i>
-                                                <span><strong>Beneficiary:</strong> {{ $project->client }}</span>
+                                            <div>
+                                                <i class="bi bi-person me-1 text-success"></i>
+                                                {{ Str::limit($project->client, 20) }}
                                             </div>
                                         </div>
 
-                                        {{-- Description --}}
                                         <p class="text-secondary small flex-grow-1 mb-3">
-                                            {!! Str::limit($project->description, 150) !!}
+                                            {!! Str::limit(strip_tags($project->description), 100) !!}
                                         </p>
 
-                                        {{-- Action Button --}}
                                         <a href="{{ route('project.details', $project->slug) }}"
-                                            class="btn btn-sm btn-outline-success w-100 d-flex justify-content-between align-items-center shadow-sm">
-                                            <span>View Details</span>
-                                            <i class="bi bi-arrow-right"></i>
+                                            class="btn btn-sm btn-outline-success w-100">
+                                            View Details <i class="bi bi-arrow-right ms-1"></i>
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Simplified Modal -->
+                            <div class="modal fade" id="{{ $modalId }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">{{ $project->title }}</h5>
+                                            <button type="button" class="btn-close"
+                                                data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body p-0 bg-dark">
+                                            @if ($isVideo)
+                                                <video id="videoPlayer-{{ $project->id }}" controls class="w-100"
+                                                    style="max-height: 75vh;">
+                                                    <source src="{{ $mediaUrl }}"
+                                                        type="video/{{ $extension }}">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            @else
+                                                <img src="{{ $mediaUrl }}" class="w-100"
+                                                    alt="{{ $project->title }}"
+                                                    style="max-height: 75vh; object-fit: contain;">
+                                            @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="text-muted small me-auto">
+                                                <strong>Beneficiary:</strong> {{ $project->client }} •
+                                                <strong>Date:</strong> {{ $project->date }}
+                                            </div>
+                                            <a href="{{ $mediaUrl }}" class="btn btn-sm btn-primary"
+                                                download="{{ $project->photo }}">
+                                                <i class="fas fa-download me-1"></i> Download
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 @else
-                    <!-- Empty State -->
                     <div class="text-center py-5">
-                        <h4 class="text-muted text-danger">No Program available at the moment.</h4>
+                        <h4 class="text-danger">No Program available at the moment.</h4>
                     </div>
                 @endif
-
             </div>
         </section>
+
+        <style>
+            /* Hover effect for images */
+            .image-overlay:hover {
+                background: rgba(0, 0, 0, 0.5) !important;
+            }
+
+            .image-overlay:hover i {
+                opacity: 1 !important;
+            }
+
+            /* Card hover effect */
+            .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+            }
+
+            /* Prevent modal flickering */
+            .modal.fade .modal-dialog {
+                transition: transform 0.2s ease-out;
+            }
+
+            .modal-backdrop {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            /* Video thumbnail */
+            video::-webkit-media-controls {
+                display: none !important;
+            }
+        </style>
+
+
 
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
@@ -380,9 +370,10 @@
 
                                                 <div class="h-100 d-flex align-items-center justify-content-center">
                                                     <div class="text-center text-white">
-                                                        <i class="fas fa-play-circle fa-3x mb-3"></i>
-                                                        <div class="badge bg-danger px-3 py-1">
-                                                            VIDEO CONTENT
+                                                        <div class="play-button bg-danger rounded-circle d-inline-flex 
+                                                                        align-items-center justify-content-center shadow-lg"
+                                                            style="width: 60px; height: 60px; transition: all 0.3s ease;">
+                                                            <i class="bi bi-play-circle text-white fs-4"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -390,7 +381,7 @@
                                                 <!-- Video Type Badge -->
                                                 <div class="position-absolute top-0 end-0 m-2">
                                                     <span class="badge bg-dark">
-                                                        <i class="fas fa-video me-1"></i>
+                                                        <i class="bi bi-play-circle me-1"></i>
                                                         {{ strtoupper($extension) }}
                                                     </span>
                                                 </div>
@@ -525,6 +516,7 @@
         }
     });
 </script>
+
 <script>
     // Fullscreen toggle for videos
     function toggleFullscreen(videoId) {

@@ -38,39 +38,6 @@
                                     @enderror
                                 </div>
 
-                                {{-- <div class="mb-3 position-relative">
-                                    <label class="form-label" for="post_image"><b>Media</b></label>
-
-                                    <!-- Livewire Upload Progress -->
-                                    <div x-data="{ isUploading: false, progress: 5 }"
-                                         x-on:livewire-upload-start="isUploading = true"
-                                         x-on:livewire-upload-finish="isUploading = false; progress = 5"
-                                         x-on:livewire-upload-error="isUploading = false"
-                                         x-on:livewire-upload-progress="progress = $event.detail.progress">
-
-                                        <!-- File Input Styled Like Text Input -->
-                                        <input id="croped_image" name="croped_image" type="text" hidden>
-                                        <input type="file" class="form-control shadow-sm py-3" id="post_image"
-                                               wire:model="photo" accept="image/*,video/*">
-
-                                        <!-- Upload Progress Bar -->
-                                        <div class="progress mt-1" x-show.transition="isUploading">
-                                            <div class="progress-bar bg-success progress-bar-striped"
-                                                 aria-valuenow="5" aria-valuemin="5" aria-valuemax="100"
-                                                 x-bind:style="`width:${progress}%`" role="progressbar">
-                                                <span class="sr-only">Uploading...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @if ($photo)
-                                        <small class="text-muted d-block mt-1">{{ $photo->getClientOriginalName() }}</small>
-                                    @endif
-
-                                    @error('photo')
-                                        <p class="text-danger small mt-1">{{ $message }}</p>
-                                    @enderror
-                                </div> --}}
 
                                 <div class="mb-3 position-relative">
                                     <label class="form-label" for="post_image"><b>Media (Image or Video)</b></label>
@@ -177,15 +144,6 @@
                                                             style="max-height: 200px; object-fit: contain;"
                                                             alt="Image preview">
                                                     </div>
-                                                    {{-- <div class="mt-2">
-                                                        <button type="button" class="btn btn-sm btn-outline-primary"
-                                                            wire:click="$dispatch('open-cropper')">
-                                                            <i class="fas fa-crop me-1"></i> Crop Image
-                                                        </button>
-                                                        <small class="text-muted ms-2">
-                                                            Click to crop or edit the image
-                                                        </small>
-                                                    </div> --}}
                                                 @elseif($isVideo)
                                                     <div class="border rounded p-2 bg-dark">
                                                         <p class="small text-white mb-1">Video Preview:</p>

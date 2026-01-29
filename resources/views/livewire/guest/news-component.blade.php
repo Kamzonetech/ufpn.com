@@ -58,9 +58,10 @@
 
                                             <div class="h-100 d-flex align-items-center justify-content-center">
                                                 <div class="text-center text-white">
-                                                    <i class="fas fa-play-circle fa-3x mb-3"></i>
-                                                    <div class="badge bg-danger px-3 py-1">
-                                                        VIDEO CONTENT
+                                                    <div class="play-button bg-danger rounded-circle d-inline-flex 
+                                                                        align-items-center justify-content-center shadow-lg"
+                                                        style="width: 60px; height: 60px; transition: all 0.3s ease;">
+                                                        <i class="bi bi-play-circle text-white fs-4"></i>
                                                     </div>
                                                 </div>
                                             </div>
