@@ -31,22 +31,27 @@
                                 <div class="text-center">
                                     <div class="">
                                         <a>
-                                            <img src="{{ asset('admin/assets/images/users/'.Auth::user()->profile_photo_path) }}?t={{ now() }}" alt=""
-                                            class="avatar-lg mx-auto img-thumbnail rounded-circle">
+                                            <img src="{{ asset('admin/assets/images/users/' . Auth::user()->profile_photo_path) }}"
+                                                alt="{{ Auth::user()->surname . ' ' . Auth::user()->othernames }}"
+                                                class="avatar-lg mx-auto img-thumbnail rounded-circle">
                                         </a>
                                     </div>
 
                                     <div class="mt-3">
-                                        <h5 class="fw-bold text-primary">{{ Auth::user()->surname . ' ' . Auth::user()->othernames }}</h5>
+                                        <h5 class="fw-bold text-primary">
+                                            {{ Auth::user()->surname . ' ' . Auth::user()->othernames }}</h5>
                                         <p class="text-muted">{{ Auth::user()->user_type }}</p>
-                                        <span class="badge {{ Auth::user()->status == 'Active' ? 'bg-success' : 'bg-danger' }}">
+                                        <span
+                                            class="badge {{ Auth::user()->status == 'Active' ? 'bg-success' : 'bg-danger' }}">
                                             {{ Auth::user()->status }}
                                         </span>
                                     </div>
                                 </div>
                             </div>
 
-                            {{-- <form name="new-blog" id="new-blog" wire:submit.prevent="updateProfilePhoto(Object.fromEntries(new FormData($event.target)))" enctype="multipart/form-data">
+                            <form name="new-blog" id="new-blog"
+                                wire:submit.prevent="updateProfilePhoto(Object.fromEntries(new FormData($event.target)))"
+                                enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <div class="custom-file">
                                         <div x-data="{ isUploading: false, progress: 5 }" x-on:livewire-upload-start="isUploading = true"
@@ -54,8 +59,8 @@
                                             x-on:livewire-upload-error="isUploading = false"
                                             x-on:livewire-upload-progress="progress = $event.detail.progress">
                                             <input id="croped_image" name="croped_image" type="text" hidden>
-                                            <input class="form-control shadow-sm" id="post_image" wire:model="photo" type="file"
-                                                accept="image/*,video/*">
+                                            <input class="form-control shadow-sm" id="post_image" wire:model="photo"
+                                                type="file" accept="image/*,video/*">
                                             <div class="progress mt-1" x-show.transition="isUploading">
                                                 <div class="progress-bar bg-success progress-bar-striped"
                                                     aria-valuenow="5" aria-valuemin="5" aria-valuemax="100"
@@ -76,10 +81,11 @@
 
                                     <button type="submit" class="btn btn-success waves-effect waves-light">
                                         <i wire:loading wire:target="updateProfilePhoto"
-                                            class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Upload Photo
+                                            class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Upload
+                                        Photo
                                     </button>
                                 </div>
-                            </form> --}}
+                            </form>
                         </div>
                     </div>
 
@@ -104,14 +110,18 @@
                                     <div class="row mt-4">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label fw-semibold"><i class="fas fa-user"></i> Surname</label>
-                                                <input type="text" value="{{ Auth::user()->surname }}" readonly class="form-control bg-light">
+                                                <label class="form-label fw-semibold"><i class="fas fa-user"></i>
+                                                    Surname</label>
+                                                <input type="text" value="{{ Auth::user()->surname }}" readonly
+                                                    class="form-control bg-light">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label fw-semibold"><i class="fas fa-user"></i> Othernames</label>
-                                                <input type="text" value="{{ Auth::user()->othernames }}" readonly class="form-control bg-light">
+                                                <label class="form-label fw-semibold"><i class="fas fa-user"></i>
+                                                    Othernames</label>
+                                                <input type="text" value="{{ Auth::user()->othernames }}" readonly
+                                                    class="form-control bg-light">
                                             </div>
                                         </div>
                                     </div>
@@ -119,27 +129,15 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label class="form-label fw-semibold"><i class="fas fa-envelope"></i> Email</label>
-                                                <input type="text" value="{{ Auth::user()->email }}" readonly class="form-control bg-light">
+                                                <label class="form-label fw-semibold"><i class="fas fa-envelope"></i>
+                                                    Email</label>
+                                                <input type="text" value="{{ Auth::user()->email }}" readonly
+                                                    class="form-control bg-light">
                                             </div>
                                         </div>
                                     </div>
 
-                                    {{-- Uncomment to display phone and address --}}
-                                    {{-- <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-semibold"><i class="fas fa-phone"></i> Phone Number</label>
-                                                <input type="text" value="{{ Auth::user()->phoneno }}" readonly class="form-control bg-light">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-semibold"><i class="fas fa-map-marker-alt"></i> Address</label>
-                                                <textarea class="form-control bg-light" readonly rows="2">{{ Auth::user()->address }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div> --}}
+
                                 </div>
                             </div>
 
@@ -239,4 +237,3 @@
         });
     </script>
 @endpush
-

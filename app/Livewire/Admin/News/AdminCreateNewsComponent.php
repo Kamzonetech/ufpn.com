@@ -44,7 +44,7 @@ class AdminCreateNewsComponent extends Component
     public function updatedPhoto($photo)
     {
         $this->validate([
-            'photo' => 'required|max:20480', // 20MB
+            'photo' => 'required|max:51200', // 20MB
         ]);
 
         if ($this->photo) {
@@ -86,11 +86,11 @@ class AdminCreateNewsComponent extends Component
 
             if ($this->isImage($fileExtension)) {
                 $this->validateOnly($fields, [
-                    'photo' => 'required|mimes:jpg,jpeg,png,gif,webp,bmp|max:20480',
+                    'photo' => 'required|mimes:jpg,jpeg,png,gif,webp,bmp|max:51200',
                 ], $this->message);
             } elseif ($this->isVideo($fileExtension)) {
                 $this->validateOnly($fields, [
-                    'photo' => 'required|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:20480',
+                    'photo' => 'required|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:51200',
                 ], $this->message);
             } else {
                 $this->addError('photo', 'Unsupported file format!');
@@ -188,7 +188,7 @@ class AdminCreateNewsComponent extends Component
         $this->validate([
             'title' => ['required', 'string', 'max:255', 'unique:news,title'],
             'description' => 'required',
-            'photo' => 'required|max:20480',
+            'photo' => 'required|max:51200',
         ], $this->message);
 
         // Additional validation based on file type
@@ -197,11 +197,11 @@ class AdminCreateNewsComponent extends Component
 
             if ($this->isImage($fileExtension)) {
                 $this->validate([
-                    'photo' => 'required|mimes:jpg,jpeg,png,gif,webp,bmp|max:20480',
+                    'photo' => 'required|mimes:jpg,jpeg,png,gif,webp,bmp|max:51200',
                 ], $this->message);
             } elseif ($this->isVideo($fileExtension)) {
                 $this->validate([
-                    'photo' => 'required|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:20480',
+                    'photo' => 'required|mimes:mp4,avi,mov,wmv,flv,mkv,webm,m4v,3gp|max:51200',
                 ], $this->message);
             } else {
                 $this->addError('photo', 'Unsupported file format!');

@@ -220,22 +220,11 @@
                                         </div>
                                     @else
                                         <!-- Upload guidelines -->
-                                        <div class="mt-2">
-                                            <div class="alert alert-info py-2">
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0">
-                                                        <i class="fas fa-info-circle"></i>
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <small>
-                                                            <strong>Accepted formats:</strong><br>
-                                                            • Images: JPG, PNG, GIF, WebP, BMP (max 50MB)<br>
-                                                            • Videos: MP4, AVI, MOV, WMV, FLV, MKV, WebM (max 50MB)
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <small class="text-muted d-block mt-1">
+                                            Upload images (JPG, PNG, GIF, WebP, BMP) or videos (MP4, AVI, MOV, WMV,
+                                            etc.) up
+                                            to 50MB
+                                        </small>
                                     @endif
 
                                     @error('photo')
@@ -273,74 +262,6 @@
                                             }
                                         }
                                     </style>
-
-                                    <!-- Image Cropper Modal (only for images) -->
-                                    {{-- @if ($photo && $isImage)
-                                        <div x-data="{ showCropper: false }" x-on:open-cropper.window="showCropper = true"
-                                            x-on:cropper-closed.window="showCropper = false">
-
-                                            <!-- Trigger could be handled by the preview button above -->
-
-                                            <!-- Cropper Modal -->
-                                            <div x-show="showCropper" 
-                                                x-transition:enter="transition ease-out duration-300"
-                                                x-transition:enter-start="opacity-0"
-                                                x-transition:enter-end="opacity-100"
-                                                x-transition:leave="transition ease-in duration-200"
-                                                x-transition:leave-start="opacity-100"
-                                                x-transition:leave-end="opacity-0"
-                                                class="modal fade show" 
-                                                style="display: block; background-color: rgba(0,0,0,0.5);"
-                                                x-cloak>
-                                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">
-                                                                <i class="fas fa-crop me-1"></i>
-                                                                Crop Image
-                                                            </h5>
-                                                            <button type="button" class="btn-close" 
-                                                                    @click="showCropper = false; $dispatch('cropper-closed')"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            @if ($photo)
-                                                                <!-- You can integrate your existing image cropper component here -->
-                                                                <div class="text-center">
-                                                                    <img src="{{ $photo->temporaryUrl() }}" 
-                                                                        id="imageToCrop" 
-                                                                        class="img-fluid" 
-                                                                        style="max-height: 400px;">
-                                                                </div>
-                                                                <div class="mt-3">
-                                                                    <div class="btn-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                                                                            <i class="fas fa-search-plus"></i> Zoom In
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                                                                            <i class="fas fa-search-minus"></i> Zoom Out
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                                                                            <i class="fas fa-rotate-left"></i> Rotate
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" 
-                                                                    @click="showCropper = false; $dispatch('cropper-closed')">
-                                                                Cancel
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary"
-                                                                    wire:click="$dispatch('crop-image')">
-                                                                <i class="fas fa-check me-1"></i> Apply Crop
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif --}}
                                 </div>
 
                                 <div class="mb-3 shadow-sm">
