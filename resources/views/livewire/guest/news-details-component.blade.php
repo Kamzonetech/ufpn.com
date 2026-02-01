@@ -52,7 +52,9 @@
                                 <!-- Video Display -->
                                 <div class="video-container bg-dark rounded-top"
                                     style="height: 450px; overflow: hidden;">
-                                    <video controls class="w-100 h-100" style="object-fit: contain; background: #000;">
+                                    <video controls class="w-100 h-100" 
+                                        style="object-fit: contain; background: #000;"
+                                        preload="metadata">
                                         <source src="{{ $mediaUrl }}" type="video/{{ $extension }}">
                                         Your browser does not support the video tag.
                                     </video>
@@ -84,6 +86,7 @@
                                     <img src="{{ $mediaUrl }}" alt="{{ $news->title }}"
                                         class="img-fluid w-100 rounded-top"
                                         style="max-height: 450px; object-fit: cover; cursor: pointer;"
+                                        fetchpriority="high" loading="eager"
                                         data-bs-toggle="modal" data-bs-target="#{{ $modalId }}">
 
                                     <!-- Image Badge -->
@@ -236,7 +239,7 @@
                                             @else
                                                 <img src="{{ asset('admin/assets/images/news/' . $related->photo) }}"
                                                     alt="{{ $related->title }}" class="img-fluid rounded"
-                                                    style="height: 70px; object-fit: cover;">
+                                                    style="height: 70px; object-fit: cover;" loading="lazy">
                                             @endif
                                         </div>
                                         <div class="col-8">
@@ -305,8 +308,9 @@
             </div>
         </div>
     @endif
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+@push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Custom Styles */
         .video-container video::-webkit-media-controls-panel {
@@ -375,8 +379,9 @@
             }
         }
     </style>
-</div>
+@endpush
 
+@push('scripts')
 <script>
     // Fullscreen toggle for videos
     function toggleFullscreen() {
@@ -425,3 +430,4 @@
         }
     });
 </script>
+@endpush

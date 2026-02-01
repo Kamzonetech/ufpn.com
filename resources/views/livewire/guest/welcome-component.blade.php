@@ -14,7 +14,7 @@
             <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
                 <div class="carousel-item active">
-                    <img src="{{ asset('assets/img/hero-carousel/hero.jpg') }}" alt="">
+                    <img src="{{ asset('assets/img/hero-carousel/hero.jpg') }}" alt="" fetchpriority="high" loading="eager">
                     <div class="carousel-container">
                         <h2>Welcome to UPFN (Ummah Peace Foundation Network)</h2>
                         <p>
@@ -151,7 +151,7 @@
 
                                         @if ($isVideo)
                                             <!-- Video Thumbnail -->
-                                            <video class="w-100 h-100" style="object-fit: cover;" muted>
+                                            <video class="w-100 h-100" style="object-fit: cover;" preload="metadata" muted>
                                                 <source src="{{ $mediaUrl }}#t=0.5"
                                                     type="video/{{ $extension }}">
                                             </video>
@@ -179,6 +179,7 @@
 
                                                 <img src="{{ $mediaUrl }}" class="card-img-top zoom-on-hover"
                                                     alt="{{ $project->title }}"
+                                                    loading="lazy"
                                                     style="object-fit: cover; height: 100%; width: 100%; 
                                                                 transition: transform 0.5s ease, filter 0.3s ease;"
                                                     onerror="this.onerror=null; this.src='{{ asset('admin/assets/images/placeholder.jpg') }}'">
@@ -260,6 +261,7 @@
                                         <div class="modal-body p-0 bg-dark">
                                             @if ($isVideo)
                                                 <video id="videoPlayer-{{ $project->id }}" controls class="w-100"
+                                                    preload="none"
                                                     style="max-height: 75vh;">
                                                     <source src="{{ $mediaUrl }}"
                                                         type="video/{{ $extension }}">
@@ -390,6 +392,7 @@
                                             <!-- Image Display -->
                                             <img class="card-img-top h-100 w-100" src="{{ $mediaUrl }}"
                                                 alt="{{ $new->title }}" style="object-fit: cover; cursor: pointer;"
+                                                loading="lazy"
                                                 data-bs-toggle="modal" data-bs-target="#{{ $uniqueId }}">
                                         @endif
 
@@ -432,14 +435,14 @@
                                         </div>
                                         <div class="modal-body p-0">
                                             @if ($isVideo)
-                                                <video controls class="w-100" style="max-height: 70vh;">
+                                                <video controls class="w-100" style="max-height: 70vh;" preload="none">
                                                     <source src="{{ $mediaUrl }}"
                                                         type="video/{{ $extension }}">
                                                     Your browser does not support the video tag.
                                                 </video>
                                             @else
                                                 <img src="{{ $mediaUrl }}" class="img-fluid w-100"
-                                                    alt="{{ $new->title }}">
+                                                    alt="{{ $new->title }}" loading="lazy">
                                             @endif
                                         </div>
                                         <div class="modal-footer">
@@ -499,6 +502,7 @@
 
     </main>
 </div>
+@push('scripts')
 <script>
     // Ensure Bootstrap Carousel initializes properly
     document.addEventListener('DOMContentLoaded', function() {
@@ -581,3 +585,4 @@
         });
     });
 </script>
+@endpush
