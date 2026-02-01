@@ -78,6 +78,7 @@
                                         <!-- Image Display -->
                                         <img class="card-img-top h-100 w-100" src="{{ $mediaUrl }}"
                                             alt="{{ $new->title }}" style="object-fit: cover; cursor: pointer;"
+                                            loading="lazy"
                                             data-bs-toggle="modal" data-bs-target="#{{ $uniqueId }}">
                                     @endif
 
@@ -119,13 +120,13 @@
                                     </div>
                                     <div class="modal-body p-0">
                                         @if ($isVideo)
-                                            <video controls class="w-100" style="max-height: 70vh;">
+                                            <video controls class="w-100" style="max-height: 70vh;" preload="none">
                                                 <source src="{{ $mediaUrl }}" type="video/{{ $extension }}">
                                                 Your browser does not support the video tag.
                                             </video>
                                         @else
                                             <img src="{{ $mediaUrl }}" class="img-fluid w-100"
-                                                alt="{{ $new->title }}">
+                                                alt="{{ $new->title }}" loading="lazy">
                                         @endif
                                     </div>
                                     <div class="modal-footer">
@@ -160,6 +161,9 @@
 
         </div>
     </div>
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -187,12 +191,9 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</div>
+@endpush
 
-
-
+@push('scripts')
 <script>
     // Auto-play video when modal opens
     document.addEventListener('DOMContentLoaded', function() {
@@ -218,3 +219,4 @@
         });
     });
 </script>
+@endpush

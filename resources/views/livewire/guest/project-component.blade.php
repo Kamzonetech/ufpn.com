@@ -20,60 +20,109 @@
             </div>
         </div><!-- End Page Title -->
 
-        <style>
-            /* Add these styles to your CSS file */
-            .media-card-container {
-                transition: transform 0.3s ease;
-            }
+@push('styles')
+    <style>
+        /* Add these styles to your CSS file */
+        .media-card-container {
+            transition: transform 0.3s ease;
+        }
 
-            .media-card-container:hover {
-                transform: translateY(-5px);
-            }
+        .media-card-container:hover {
+            transform: translateY(-5px);
+        }
 
-            .video-overlay {
-                background: linear-gradient(to bottom,
-                        rgba(0, 0, 0, 0.7) 0%,
-                        rgba(0, 0, 0, 0.3) 50%,
-                        rgba(0, 0, 0, 0.7) 100%);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
+        .video-overlay {
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.7) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-            .video-wrapper:hover .video-overlay {
-                opacity: 1;
-            }
+        .video-wrapper:hover .video-overlay {
+            opacity: 1;
+        }
 
-            .video-thumbnail {
-                filter: brightness(0.9);
-            }
+        .video-thumbnail {
+            filter: brightness(0.9);
+        }
 
-            .video-wrapper:hover .video-thumbnail {
-                filter: brightness(1.1);
-                transform: scale(1.05);
-                transition: transform 0.5s ease, filter 0.3s ease;
-            }
+        .video-wrapper:hover .video-thumbnail {
+            filter: brightness(1.1);
+            transform: scale(1.05);
+            transition: transform 0.5s ease, filter 0.3s ease;
+        }
 
-            .zoom-on-hover:hover {
-                transform: scale(1.1);
-            }
+        .zoom-on-hover:hover {
+            transform: scale(1.1);
+        }
 
-            .play-video-btn {
-                transition: all 0.3s ease;
-            }
+        .play-video-btn {
+            transition: all 0.3s ease;
+        }
 
-            .play-video-btn:hover {
-                transform: scale(1.1);
-                opacity: 1 !important;
-            }
+        .play-video-btn:hover {
+            transform: scale(1.1);
+            opacity: 1 !important;
+        }
 
-            .media-thumbnail-trigger {
-                transition: all 0.3s ease;
-            }
+        .media-thumbnail-trigger {
+            transition: all 0.3s ease;
+        }
 
-            .media-thumbnail-trigger:hover {
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-        </style>
+        .media-thumbnail-trigger:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover Effects */
+        .media-card-container:hover .video-overlay {
+            opacity: 1 !important;
+        }
+
+        .image-wrapper:hover .image-overlay {
+            opacity: 1 !important;
+        }
+
+        .image-wrapper:hover .zoom-on-hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .video-wrapper:hover .play-button {
+            transform: scale(1.1);
+            background-color: red !important;
+        }
+
+        .video-overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.7) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        .play-button:hover {
+            transform: scale(1.15) !important;
+        }
+
+        /* Modal Custom Styles */
+        .modal-content {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-body video::-webkit-media-controls-panel {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-body video::-webkit-media-controls-play-button {
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+@endpush
 
         <section id="portfolio" class="portfolio section py-5">
             <div class="container">
@@ -151,7 +200,8 @@
                                                         <img src="{{ $thumbnailUrl }}"
                                                             class="card-img-top video-thumbnail"
                                                             alt="{{ $project->title }}"
-                                                            style="object-fit: cover; height: 100%; width: 100%;">
+                                                            style="object-fit: cover; height: 100%; width: 100%;"
+                                                            loading="lazy">
                                                     @else
                                                         <!-- Fallback to video element -->
                                                         <video class="card-img-top video-thumbnail" muted
@@ -207,6 +257,7 @@
 
                                                     <img src="{{ $mediaUrl }}" class="card-img-top zoom-on-hover"
                                                         alt="{{ $project->title }}"
+                                                        loading="lazy"
                                                         style="object-fit: cover; height: 100%; width: 100%; 
                                                                 transition: transform 0.5s ease, filter 0.3s ease;"
                                                         onerror="this.onerror=null; this.src='{{ asset('admin/assets/images/placeholder.jpg') }}'">
@@ -281,7 +332,8 @@
                                                     @if ($isVideo)
                                                         <video id="videoPlayer-{{ $project->id }}" controls
                                                             class="w-100" style="max-height: 70vh; background: #000;"
-                                                            poster="{{ $thumbnailUrl }}">
+                                                            poster="{{ $thumbnailUrl }}"
+                                                            preload="none">
                                                             <source src="{{ $mediaUrl }}"
                                                                 type="video/{{ $extension }}">
                                                             Your browser does not support the video tag.
@@ -417,57 +469,7 @@
 
 
     </main>
-    <style>
-        /* Hover Effects */
-        .media-card-container:hover .video-overlay {
-            opacity: 1 !important;
-        }
-
-        .image-wrapper:hover .image-overlay {
-            opacity: 1 !important;
-        }
-
-        .image-wrapper:hover .zoom-on-hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-
-        .video-wrapper:hover .play-button {
-            transform: scale(1.1);
-            background-color: red !important;
-        }
-
-        .video-overlay {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            background: linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0.7) 0%,
-                    rgba(0, 0, 0, 0.3) 50%,
-                    rgba(0, 0, 0, 0.7) 100%);
-        }
-
-        .play-button:hover {
-            transform: scale(1.15) !important;
-        }
-
-        /* Modal Custom Styles */
-        .modal-content {
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .modal-body video::-webkit-media-controls-panel {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-body video::-webkit-media-controls-play-button {
-            background-color: red;
-            border-radius: 50%;
-        }
-    </style>
-</div>
-
-
+@push('scripts')
 <script>
     // Fullscreen toggle for videos
     function toggleFullscreen(videoId) {
@@ -532,3 +534,4 @@
         });
     });
 </script>
+@endpush

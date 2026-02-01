@@ -62,7 +62,8 @@
                                             <!-- Video with Controls -->
                                             <video id="mainVideoPlayer-{{ $project->id }}" class="w-100 h-100"
                                                 style="object-fit: contain; background: #000;" controls
-                                                poster="{{ asset('admin/assets/images/placeholder-video.jpg') }}">
+                                                poster="{{ asset('admin/assets/images/placeholder-video.jpg') }}"
+                                                preload="metadata">
                                                 <source src="{{ $mediaUrl }}" type="video/{{ $extension }}">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -112,6 +113,7 @@
                                         @if ($fileExists)
                                             <img src="{{ $mediaUrl }}" class="w-100 h-100 zoomable-image"
                                                 style="object-fit: cover; cursor: zoom-in;" alt="{{ $project->title }}"
+                                                fetchpriority="high" loading="eager"
                                                 data-bs-toggle="modal" data-bs-target="#{{ $modalId }}">
 
                                             <!-- Image Info Overlay -->
@@ -395,6 +397,7 @@
         </div>
     @endif
 
+@push('styles')
     <style>
         /* Custom Styles for Media Display */
         .media-display-section {
@@ -482,8 +485,10 @@
             }
         }
     </style>
+@endpush
 </div>
 
+@push('scripts')
 <script>
     // Fullscreen toggle for videos
     function toggleFullscreen(videoId) {
@@ -584,3 +589,4 @@
         }
     });
 </script>
+@endpush
