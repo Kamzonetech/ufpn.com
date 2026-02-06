@@ -161,7 +161,7 @@ class AdminAddProjectComponent extends Component
             mkdir($publicPath, 0777, true);
         }
 
-        // Method 1: Direct move (for Windows compatibility)
+        // Method 1: Direct move (for Windows compatibility & performance)
         try {
             // Get the temporary uploaded file path
             $tempPath = $this->photo->getRealPath();
@@ -170,30 +170,42 @@ class AdminAddProjectComponent extends Component
             $destination = $publicPath.DIRECTORY_SEPARATOR.$fileName;
 
             // Copy the file from temp location to public folder
-            copy($tempPath, $destination);
-
-            // Generate thumbnail for video
-            if ($this->isVideo($fileExtension)) {
-                $this->generateVideoThumbnail($destination, $publicPath, $fileName);
-            }
-
-            return $fileName;
-
-        } catch (\Exception $e) {
-            \Log::error('File move error: '.$e->getMessage());
-
-            // Fallback: Use Livewire's store method
-            try {
-                $path = $this->photo->storeAs($storagePath, $fileName, 'public_uploads');
-
+            if (copy($tempPath, $destination)) {
                 // Generate thumbnail for video
                 if ($this->isVideo($fileExtension)) {
-                    $this->generateVideoThumbnail(public_path($path), $publicPath, $fileName);
+                    $this->generateVideoThumbnail($destination, $publicPath, $fileName);
                 }
 
                 return $fileName;
+            } else {
+                throw new \Exception('Copy failed');
+            }
+
+        } catch (\Exception $e) {
+            \Log::warning('File copy failed, attempting fallback: '.$e->getMessage());
+
+            // Fallback: Use Livewire's store method with the 'public_uploads' disk
+            try {
+                // storeAs returns the path relative to the disk's root
+                $path = $this->photo->storeAs($storagePath, $fileName, 'public_uploads');
+
+                if ($path) {
+                    // Generate thumbnail for video
+                    if ($this->isVideo($fileExtension)) {
+                        // Re-construct full path for thumbnail generation
+                        $fullPath = public_path($path);
+                        $this->generateVideoThumbnail($fullPath, $publicPath, $fileName);
+                    }
+
+                    return $fileName;
+                } else {
+                    throw new \Exception('storeAs returned false or null');
+                }
+
             } catch (\Exception $e2) {
                 \Log::error('Fallback storage error: '.$e2->getMessage());
+                // Add specific error for user feedback if possible, or just return null
+                $this->addError('photo', 'Server upload failed. Check permissions or file size limits.');
 
                 return null;
             }

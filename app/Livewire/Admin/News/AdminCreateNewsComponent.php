@@ -117,29 +117,42 @@ class AdminCreateNewsComponent extends Component
         $fullPath = public_path($directory);
 
         // Create directory if it doesn't exist
-        if (! is_dir($fullPath)) {
-            mkdir($fullPath, 0755, true);
+        if (! file_exists($fullPath)) {
+            mkdir($fullPath, 0777, true);
         }
 
-        // Save the file
+        // Method 1: Direct move (for Windows compatibility & performance)
         try {
-            // Method 1: Using copy() - most reliable on Windows
+            // Get the temporary uploaded file path
             $tempPath = $this->photo->getRealPath();
-            $destination = $fullPath.'/'.$fileName;
 
-            if (file_exists($tempPath)) {
-                if (copy($tempPath, $destination)) {
-                    return $fileName;
-                }
+            // Destination path in public folder
+            $destination = $fullPath.DIRECTORY_SEPARATOR.$fileName;
+
+            // Copy the file from temp location to public folder
+            if (copy($tempPath, $destination)) {
+                return $fileName;
+            } else {
+                throw new \Exception("Copy failed");
             }
 
-            // Method 2: Fallback using storeAs()
-            return $this->photo->storeAs($directory, $fileName, 'public');
-
         } catch (\Exception $e) {
-            \Log::error('File upload error: '.$e->getMessage());
+            \Log::warning('File copy failed, attempting fallback: '.$e->getMessage());
 
-            return null;
+            // Method 2: Fallback using storeAs() with public_uploads disk
+            try {
+                $path = $this->photo->storeAs($directory, $fileName, 'public_uploads');
+                
+                if ($path) {
+                    return $fileName;
+                } else {
+                    throw new \Exception("storeAs returned false or null");
+                }
+            } catch (\Exception $e2) {
+                \Log::error('Fallback storage error: '.$e2->getMessage());
+                $this->addError('photo', 'Server upload failed. Check permissions or file size limits.');
+                return null;
+            }
         }
     }
 
